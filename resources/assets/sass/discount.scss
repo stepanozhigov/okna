@@ -1,0 +1,50 @@
+.discount {
+	@extend .container;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: rem(80);
+
+	@include below($mobile) {
+		flex-direction: column;
+	}
+
+
+
+	p {
+		margin: 0;
+		color: #485058;
+		font-family: $helvetica;
+		font-size: rem(48);
+		font-weight: 700;
+		letter-spacing: rem(-0.3);
+
+		@include below($mobile) {
+			text-align: center;
+		}
+
+		&:first-of-type {
+			@include below($mobile) {
+				margin-bottom: rem(24);
+			}
+		}
+	}
+
+	img {
+		width: rem(256);
+		height: rem(256);
+		margin: 0 rem(36);
+
+		@include below($tablet-small) {
+			margin: 0;
+			margin-right: rem(27);
+			width: rem(224);
+			height: rem(224);
+		}
+
+		@include below($mobile) {
+			margin: 0;
+			margin-bottom: rem(24);
+		}
+	}
+}

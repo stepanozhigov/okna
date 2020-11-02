@@ -1,0 +1,349 @@
+.employees {
+    .titles {
+        margin-bottom: rem(64);
+    }
+
+    &__content {
+        padding-top: rem(48);
+        padding-bottom: rem(24);
+        margin-bottom: rem(90);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    &__switcher {
+        flex-basis: 77%;
+        margin-bottom: rem(40);
+    }
+
+
+    &__card,
+    &__additionally {
+        width: calc(25% - 20px);
+        height: rem(627);
+        margin: 0 rem(10);
+        margin-bottom: rem(40);
+
+        @include below($tablet) {
+            width: calc(33.3% - 20px);
+        }
+        @include below($tablet-small) {
+            width: calc(50% - 20px);
+        }
+        @include below($mobile) {
+            width: 100%;
+            height: rem(515);
+            margin: 0;
+            margin-bottom: rem(40);
+        }
+    }
+
+    &__additionally {
+        position: relative;
+        padding: 0 rem(15);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+
+        border-radius: rem(5);
+        cursor: pointer;
+        background-image: url('/img/additionally.jpg');
+        background-size: cover;
+
+        background-color: hsla(0, 0, 0, 0.5);
+        background-blend-mode: overlay;
+        box-shadow: 0 rem(8) rem(8) rgba(0, 0, 0, 0),
+        0 0 rem(2) rgba(0, 0, 0, .08),
+        inset 0 rem(-1) 0 rgba(0, 0, 0, .12);
+
+        @include above($tablet-small) {
+            transition: all .3s;
+
+            &:hover {
+                box-shadow: 0 rem(8) rem(8) rgba(0, 0, 0, .12),
+                0 0 rem(8) rgba(0, 0, 0, .08),
+                inset 0 rem(-1) 0 rgba(0, 0, 0, .12);
+
+                background-color: hsla(0, 0, 0, 0.7);
+            }
+        }
+
+    }
+
+    &__link {
+        position: relative;
+        z-index: 2;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: rem(220);
+        height: rem(50);
+        padding: rem(10) rem(15);
+        margin: 0 auto;
+
+        font-family: $helvetica;
+        font-size: rem(20);
+        font-weight: 300;
+        color: $white;
+        text-decoration: none;
+
+        border-radius: rem(5);
+
+        @include below($tablet-small) {
+            width: rem(240);
+            height: rem(60);
+        }
+        @include below($mobile) {
+            width: 100%;
+        }
+    }
+}
+
+.employee {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    border-radius: rem(5);
+    cursor: pointer;
+    background-color: $white;
+    box-shadow: 0 rem(8) rem(8) rgba(0, 0, 0, 0),
+    0 0 rem(2) rgba(0, 0, 0, .08),
+    inset 0 rem(-1) 0 rgba(0, 0, 0, .12);
+
+    transition: box-shadow .3s;
+
+    &:hover {
+
+        box-shadow: 0 rem(8) rem(8) rgba(0, 0, 0, .12),
+        0 0 rem(8) rgba(0, 0, 0, .08),
+        inset 0 rem(-1) 0 rgba(0, 0, 0, .12);
+
+        .employee__image {
+            height: 100%;
+            object-position: top;
+        }
+
+        .employee__content {
+            height: 100%;
+
+            background-color: rgba($black, .6);
+        }
+
+        p {
+            max-height: none;
+
+            color: $white;
+            text-align: left;
+
+            &:first-of-type {
+                margin-bottom: rem(15);
+
+                color: $white;
+            }
+
+            &:last-of-type {
+                @include below($mobile) {
+                    display: block;
+                }
+            }
+        }
+
+        h2 {
+            color: $white;
+
+            &::after {
+                background-color: $white;
+
+                @include below($mobile) {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    &__image {
+        width: 100%;
+        height: rem(360);
+        object-fit: cover;
+		object-position: center;
+		object-position: top;
+
+        border-radius: rem(5);
+        box-shadow: 0 rem(8) rem(8) rgba(0, 0, 0, 0),
+        0 0 rem(2) rgba(0, 0, 0, .08),
+        inset 0 rem(-1) 0 rgba(0, 0, 0, .12);
+
+        transition: height .7s;
+        transition-timing-function: ease-out;
+
+        @include below($mobile) {
+            margin-bottom: 0;
+        }
+    }
+
+    &__content {
+        position: absolute;
+        top: auto;
+        bottom: 0;
+
+        width: 100%;
+        height: rem(267);
+        padding-top: rem(40);
+        padding-right: rem(20);
+        padding-bottom: rem(45);
+        padding-left: rem(20);
+
+        border-radius: rem(5);
+
+        transition: height .5s, background-color .8s;
+        transition-timing-function: ease-out;
+
+        @include below($mobile) {
+            height: rem(155);
+        }
+
+        p {
+            max-height: rem(60);
+            margin: 0;
+            overflow: hidden;
+
+            text-align: center;
+
+            font-family: $helvetica;
+            font-weight: 300;
+            color: $grey_abbey;
+            font-size: rem(14);
+            line-height: rem(19);
+
+            &:first-of-type {
+                margin: 0;
+                margin-bottom: rem(10);
+
+                font-weight: normal;
+                font-family: $futura;
+                letter-spacing: rem(1.5);
+                text-transform: uppercase;
+                font-size: rem(14);
+                font-weight: 300;
+                line-height: 1;
+                color: $grey_chateau;
+                text-align: center;
+                letter-spacing: rem(3);
+            }
+
+            &:last-of-type {
+                @include below($mobile) {
+                    display: none;
+                }
+            }
+        }
+
+        h2 {
+            margin: 0;
+            margin-bottom: rem(25);
+
+            font-size: rem(20);
+            line-height: 1.2;
+            text-align: center;
+            text-transform: uppercase;
+
+            font-weight: normal;
+            color: $grey_abbey;
+            font-family: $futura;
+            letter-spacing: rem(1.5);
+            text-transform: uppercase;
+            position: relative;
+
+            padding-bottom: rem(25);
+
+            &::after {
+                content: '';
+
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                left: 0;
+
+                width: rem(80);;
+                height: rem(1);
+                margin: 0 auto;
+
+                background-color: $grey_chateau;
+
+                @include below($mobile) {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    &_active {
+        .employee__image {
+            height: 100%;
+        }
+
+        .employee__content {
+            height: 100%;
+
+            background-color: rgba($black, .6);
+        }
+
+        p {
+            max-height: none;
+
+            color: $white;
+            text-align: left;
+
+            &:first-of-type {
+                margin-bottom: rem(15);
+
+                color: $white;
+            }
+
+            &:last-of-type {
+                @include below($mobile) {
+                    display: block;
+                }
+            }
+        }
+
+        h2 {
+            color: $white;
+
+            &::after {
+                background-color: $white;
+
+                @include below($mobile) {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+.additionally {
+    &__title {
+        color: white;
+        margin-top: -100px;
+        margin-bottom: 20px;
+    }
+    &__line {
+        margin-bottom: 25px;
+        width: 85px;
+    }
+
+    .subtext {
+        text-align: center;
+        line-height: 24px;
+    }
+
+}

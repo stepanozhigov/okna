@@ -1,0 +1,411 @@
+.lamp {
+    position: relative;
+
+    padding: 0 rem(15);
+    padding-bottom: rem(45);
+
+    border-radius: rem(5);
+    box-shadow: 0 rem(8) rem(8) rgba(0, 0, 0, 0),
+    0 0 rem(2) rgba(0, 0, 0, .08),
+    inset 0 rem(-1) 0 rgba(0, 0, 0, .12);
+
+    @include above($tablet-small) {
+        transition: box-shadow .3s;
+
+        &:hover {
+            box-shadow: 0 rem(8) rem(8) rgba(0, 0, 0, .12),
+            0 0 rem(8) rgba(0, 0, 0, .08),
+            inset 0 rem(-1) 0 rgba(0, 0, 0, .12);
+        }
+    }
+
+    &__gallery {
+        position: absolute;
+        top: rem(-72);
+        left: calc(50% - 105px);
+
+        width: rem(211);
+        height: rem(180);
+        margin: 0 auto;
+        overflow: visible;
+
+        background: white;
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+
+        &.hidden {
+            display: none;
+        }
+        &.visible {
+            display: block;
+        }
+    }
+
+    &__tab-name {
+        width: 100%;
+        height: rem(17);
+        margin-top: rem(118);
+        margin-bottom: rem(15);
+
+        font-family: $helvetica;
+        font-size: rem(14);
+        font-weight: 100;
+        color: #888;
+        text-align: center;
+    }
+
+    &__tab {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: rem(20);
+
+        @include below($tablet-small) {
+            margin-bottom: 0;
+        }
+    }
+
+    &__tab-swivel {
+        margin-right: rem(5);
+
+        cursor: pointer;
+
+        @include below($tablet-small) {
+            margin-right: rem(20);
+            margin-bottom: rem(20);
+        }
+
+        &_mate-cuprum {
+            .lamp__tab-custom {
+                background-image: linear-gradient(to bottom, #cba27b, #cda885 29%, #a37042 59%, #71461f);
+            }
+        }
+
+        &_gold {
+            .lamp__tab-custom {
+                background-image: linear-gradient(to bottom, #ffe034, #fff2aa 29%, #ffd700 59%, #b58000);
+            }
+        }
+
+        &_titan {
+            .lamp__tab-custom {
+                background-image: linear-gradient(to top, #aaa199, #e6e2df);
+            }
+        }
+
+        &_chrome {
+            .lamp__tab-custom {
+                background-image: linear-gradient(to bottom, #dbdbdb, #fff 14%, #a5a3a3 45%, #858585 68%, #242424 88%, #fff);
+            }
+        }
+
+        &_nielloed-bronze {
+            .lamp__tab-custom {
+                background-image: linear-gradient(to bottom, #ecc199, #efdac6 29%, #dda673 59%, #b47d4b);
+            }
+        }
+
+        &_nielloed-cuprum {
+            .lamp__tab-custom {
+                background-image: linear-gradient(to bottom, #ecc199, #efdac6 29%, #dda673 59%, #b47d4b);
+            }
+        }
+
+        &_nielloed-chrome {
+            .lamp__tab-custom {
+                background-image: linear-gradient(to bottom, #bbb9b9, #d9d8d8 14%, #818080 43%, #434343 68%, #000 88%, #d6d6d6);
+            }
+        }
+
+
+
+        &_mate-cuprum {
+            .lamp__tab-custom {
+                background-image: linear-gradient(to bottom, #cba27b, #cda885 29%, #a37042 59%, #71461f);
+            }
+        }
+
+        &_mate-chrome {
+            .lamp__tab-custom {
+                background-image: linear-gradient(to bottom, #ddd, #a5a3a3 55%, #dedede);
+            }
+        }
+
+        &_cuprum {
+            .lamp__tab-custom {
+                background-image: linear-gradient(to bottom, #ddcaa9, #ffeed8 29%, #c0ae88 58%, #a28e61);
+            }
+        }
+
+        &_perl-with-chrome {
+            .lamp__tab-custom {
+                background-image: linear-gradient(to bottom, #dbdbdb, #fff 14%, #a5a3a3 45%, #858585 68%, #242424 88%, #fff);
+
+                &::after {
+                    content: '';
+
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+
+                    width: rem(5);
+                    height: rem(10);
+                    overflow: hidden;
+
+                    border-radius: rem(3);
+                    border-top-left-radius: rem(40);
+                    border-bottom-left-radius: rem(40);
+                    background: white;
+
+                    @include below($tablet-small) {
+                        width: rem(13);
+                        height: rem(25);
+                    }
+                }
+            }
+        }
+
+        &_silver-with-chrome {
+            .lamp__tab-custom {
+                background-image: linear-gradient(to bottom, #dbdbdb, #fff 14%, #a5a3a3 45%, #858585 68%, #242424 88%, #fff);
+
+                &::after {
+                    content: '';
+
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+
+                    width: rem(5);
+                    height: rem(10);
+                    overflow: hidden;
+
+                    border-radius: rem(3);
+                    border-top-left-radius: rem(40);
+                    border-bottom-left-radius: rem(40);
+                    background: white;
+
+                    @include below($tablet-small) {
+                        width: rem(13);
+                        height: rem(25);
+                    }
+                }
+            }
+        }
+
+        &_nielloed-chrome-with-chrome {
+            .lamp__tab-custom {
+                background-image: linear-gradient(to bottom, #bbb9b9, #d9d8d8 14%, #818080 43%, #434343 68%, #000 88%, #d6d6d6);
+
+                &::after {
+                    content: '';
+
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+
+                    width: rem(5);
+                    height: rem(8);
+                    overflow: hidden;
+
+                    border-radius: rem(3);
+                    border-top-left-radius: rem(40);
+                    border-bottom-left-radius: rem(40);
+                    background: #4a4a4a;
+
+                    @include below($tablet-small) {
+                        width: rem(13);
+                        height: rem(25);
+                    }
+                }
+            }
+        }
+
+        &_beige {
+            .lamp__tab-custom {
+                background-color: #f0dfb8;
+            }
+        }
+
+        &_blue {
+            .lamp__tab-custom {
+                background-color: #75daef;
+            }
+        }
+
+        &_yellow {
+            .lamp__tab-custom {
+                background-color: #ffe100;
+            }
+        }
+
+        &_green {
+            .lamp__tab-custom {
+                background-color: #00c37d;
+            }
+        }
+
+        &_brown {
+            .lamp__tab-custom {
+                background-color: #8b572a;
+            }
+        }
+
+        &_red {
+            .lamp__tab-custom {
+                background-color: #f00;
+            }
+        }
+
+        &_orange {
+            .lamp__tab-custom {
+                background-color: #f6a623;
+            }
+        }
+
+        &_black {
+            .lamp__tab-custom {
+                background-color: #000;
+            }
+        }
+    }
+
+    &__tab-hiden {
+        display: none;
+
+        &:checked + .lamp__tab-custom::before {
+            content: '';
+
+            position: absolute;
+            z-index: 9;
+            top: rem(-1);
+            left: rem(-1);
+
+            width: rem(12);
+            height: rem(12);
+
+            border: rem(1) solid red;
+            border-radius: 50%;
+
+            @include below($tablet-small) {
+                width: rem(27);
+                height: rem(27);
+            }
+        }
+    }
+
+    &__tab-custom {
+        position: relative;
+
+        display: inline-block;
+        width: rem(12);
+        height: rem(12);
+
+        vertical-align: middle;
+
+        border: rem(1) solid #ccc;
+        border-radius: 50%;
+
+        @include below($tablet-small) {
+            width: rem(27);
+            height: rem(27);
+        }
+    }
+
+    &__title {
+        margin: 0 auto;
+        margin-bottom: rem(5);
+
+        font-family: $futura;
+        font-size: rem(26);
+        font-weight: 300;
+        color: #6b6b6b;
+        text-align: center;
+        letter-spacing: rem(1);
+        text-transform: uppercase;
+
+        @include below($tablet-small) {
+            font-size: rem(24);
+        }
+    }
+
+    &__info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: rem(25);
+    }
+
+    &__tab-text {
+        &.hidden {
+            display: none;
+        }
+        &.visible {
+            display: block;
+        }
+    }
+
+    &__text {
+        height: rem(17);
+        margin: 0;
+        margin-left: rem(12);
+
+        font-family: $helvetica;
+        font-size: rem(14);
+        font-weight: 300;
+        color: #6b6b6b;
+        text-align: left;
+    }
+
+    &__model,
+    &__power,
+    &__temperature {
+        display: flex;
+        align-items: center;
+        margin: auto;
+    }
+
+    &__price {
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+    }
+
+    &__price-icon {
+        fill: $red_crismon;
+
+        @include below($tablet-small) {
+            width: rem(20);
+            height: rem(26);
+        }
+    }
+
+    &__summ {
+        font-family: $helvetica;
+        font-size: rem(32);
+        font-weight: 500;
+        color: rgba(229, 44, 24, 1);
+        text-align: center;
+        text-shadow: 0 rem(-1) #800;
+
+        @include below($tablet-small) {
+            font-size: rem(36);
+        }
+    }
+
+    &__zoom {
+        position: absolute;
+        bottom: rem(12);
+        left: rem(12);
+
+        cursor: pointer;
+    }
+
+    &__link {
+        outline: none;
+    }
+}

@@ -1,0 +1,329 @@
+@import 'mixins';
+@import 'variables';
+
+.contacts {
+    position: relative;
+    margin-bottom: rem(80);
+    overflow: hidden;
+
+    @media screen and (max-width: rem(1024)) {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .titles {
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.12);
+        position: relative;
+        z-index: 2;
+    }
+
+    &__map {
+        position: relative;
+        width: 100%;
+        height: 70vh;
+
+        @media screen and (max-width: rem(1024)) {
+            order: 2;
+            z-index: 1;
+        }
+
+        @include below($tablet) {
+            width: 100%;
+            height: rem(880);
+        }
+    }
+    &__offices {
+        position: absolute;
+        top: rem(60);
+        left: 120px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        z-index: 2;
+
+        @include below($tablet) {
+            height: calc(100% - 265px);
+            bottom: auto;
+            top: 0;
+            left: 20px;
+        }
+
+        @include below($mobile) {
+            height: auto;
+            width: 100%;
+            left: 0;
+			top: rem(16);
+            justify-content: center;
+        }
+    }
+    &__office {
+        margin-bottom: 10px;
+
+		@include below($mobile) {
+            margin: 0;
+        }
+    }
+
+    &__nav {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0;
+        height: 100%;
+        left: auto;
+        right: rem(-75);
+
+        @include below($mobile) {
+            left: 0;
+			transform: none;
+			width: 100%;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+
+    &__next,
+    &__prev {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: rem(60);
+        height: rem(60);
+        padding: rem(22) rem(25);
+        border: none;
+        background-color: rgba(0, 9, 18, 0.4);
+        outline: none;
+        cursor: pointer;
+        z-index: 9;
+        transition: background-color .3s;
+
+        svg {
+            transition: fill .3s;
+            fill: #babec2;
+        }
+    }
+
+    &__next {
+        right: 0;
+        border-radius: 0 rem(30) rem(30) 0;
+        transform: rotate(90deg);
+
+        @include below($mobile) {
+            transform: rotate(0);
+            border-radius: rem(30) 0 0 rem(30);
+        }
+
+
+    }
+
+    &__prev {
+        left: 0;
+        border-radius: rem(30) 0 0 rem(30);
+        transform: rotate(90deg);
+        margin-bottom: rem(1);
+
+        svg {
+            transform: rotate(180deg);
+        }
+
+        @include below($mobile) {
+            transform: rotate(0);
+            margin-bottom: 0;
+            border-radius: 0 rem(30) rem(30) 0;
+        }
+    }
+
+    &__item {
+        .second-title {
+            text-align: center;
+            padding: 0;
+            font-size: 24px;
+            margin-bottom: rem(16);
+
+            &::after {
+                display: none;
+            }
+        }
+    }
+
+    &__footer {
+
+        box-shadow: 0 -4px 4px rgba(0, 0, 0, 0.12);
+        z-index: 2;
+
+        @include below($tablet) {
+            order: 2;
+        }
+
+
+
+        &-content {
+            @extend .container;
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 40px 0;
+            padding-bottom: 0;
+
+            @include below($tablet) {
+
+                padding-left: 65px;
+                padding-right: 65px;
+
+                .contacts__item {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    max-width: 215px;
+                    margin-bottom: rem(65);
+
+                    &:last-of-type {
+                        max-width: none;
+                        width: 100%;
+                        margin-bottom: 0;
+                    }
+                }
+
+                .socials__icon {
+                    width: rem(48);
+                    height: rem(48);
+                }
+
+                .socials__item {
+                    margin: 0;
+                    width: auto;
+
+                    &:not(:last-of-type) {
+                        margin-right: rem(16);
+
+                        @include below($mobile) {
+                            margin-right: rem(12);
+                        }
+                    }
+                }
+            }
+
+            @include below($mobile) {
+                padding: 0;
+                padding-top: rem(64);
+
+                .contacts__item {
+                    width: 100%;
+                    max-width: none;
+                    margin: 0;
+
+                    &:not(:last-of-type) {
+                        margin-bottom: 40px;
+                    }
+                }
+            }
+        }
+    }
+
+    &__phone {
+        flex-direction: column;
+        font-size: 24px;
+        align-items: flex-end;
+
+        .phone__time {
+            margin: 0;
+            margin-right: 9px;
+        }
+    }
+
+    &__socials {
+
+        @include below($tablet) {
+            justify-content: center;
+        }
+    }
+
+    .second-title {
+        @include below($tablet) {
+            font-size: 24px;
+        }
+    }
+}
+
+.office {
+    overflow: hidden;
+    width: 380px;
+    height: auto;
+    display: none;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.12), 0 0 8px rgba(0, 0, 0, 0.08), inset 0 -1px 0 rgba(0, 0, 0, 0.12);
+    margin: 0;
+
+    @include below($mobile) {
+        width: rem(300);
+    }
+
+    @include below($mobile-small) {
+        width: calc(100% - 16px);
+    }
+
+    &_active {
+        display: block;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        padding: rem(32) rem(16);
+        padding-bottom: rem(40);
+    }
+
+    &__img {
+        height: 220px;
+        width: 100%;
+        object-fit: cover;
+
+        @include below($mobile) {
+            height: rem(180);
+        }
+    }
+    &__title {
+        display: flex;
+        align-items: center;
+        margin: 0;
+		font-size: rem(26);
+		font-weight: 400;
+		line-height: rem(32);
+		letter-spacing: 1.5;
+    }
+
+    &__desc {
+        margin: 0;
+        margin-bottom: rem(16);
+		font-family: $helvetica;
+		font-size: rem(14);
+		font-weight: 300;
+		line-height: rem(24);
+    }
+    &__time {
+        margin: 0;
+		font-size: rem(26);
+		font-weight: 400;
+		line-height: rem(32);
+		letter-spacing: 1.5;
+    }
+
+    &__weekend {
+        margin: 0;
+		font-family: $helvetica;
+		font-size: rem(14);
+		font-weight: 300;
+		line-height: rem(24);
+    }
+    &__icon {
+        margin-right: 10px;
+    }
+
+	.js-next-office {
+		right: 0;
+	}
+}

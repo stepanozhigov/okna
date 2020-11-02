@@ -1,0 +1,371 @@
+.about {
+
+	&__titles {
+		margin-bottom: rem(48);
+
+		.titles__title {
+			margin-bottom: 0;
+			padding-bottom: 0;
+
+			&::after {
+				display: none;
+			}
+		}
+	}
+
+	&__all-rewards,
+	&__all-images {
+		position: relative;
+		display: none;
+		color: #babec2;
+		font-family: $helvetica;
+		font-size: rem(18);
+		font-weight: 300;
+		line-height: rem(26);
+		text-decoration: none;
+
+		&::after {
+            position: absolute;
+            width: 100%;
+            bottom: rem(-1);
+            display:block;
+            content: '';
+            border-bottom: rem(1) dashed #babec2;
+			z-index: 2;
+        }
+
+		@include below($mobile) {
+			display: inline;
+		}
+	}
+
+	&__quote {
+		padding-top: rem(63);
+		position: relative;
+	    z-index: 2;
+	    display: flex;
+	    height: rem(450);
+		margin: 0;
+	    margin-bottom: rem(63);
+	    background-image: url('/img/factory.jpg');
+	    background-position: bottom;
+	    background-size: cover;
+
+		@media (min-resolution: 144dpi),
+		(min-resolution: 1.5dppx) {
+			background-image: url('/img/factory@2x.png');
+		}
+
+		@include below($tablet) {
+			padding-top: rem(88);
+			margin-bottom: rem(70);
+		}
+
+		@include below($mobile) {
+			height: auto;
+			padding-top: rem(96);
+			margin-bottom: rem(70);
+			padding-bottom: rem(74);
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			background-color: rgba(0,0,0,.6);
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+
+		p {
+			position: relative;
+		    width: rem(497);
+		    padding-top: rem(85);
+		    margin: 0 0 0 auto;
+			margin-right: rem(180);
+		    font-size: rem(24);
+			font-family: $playfair;
+		    font-style: italic;
+		    line-height: 1.5;
+		    color: #fff;
+		    text-align: left;
+			z-index: 2;
+
+			@include below($tablet) {
+				padding-top: rem(80);
+				font-size: rem(30);
+				margin-right: 0;
+				line-height: rem(42);
+			}
+
+			@include below($mobile) {
+				font-size: rem(24);
+				margin: 0;
+				width: 100%;
+			}
+
+			&::before {
+				content: '';
+			    position: absolute;
+			    top: 0;
+			    left: 0;
+			    width: rem(50);
+			    height: rem(40);
+			    background: url('/img/gui/quote_white.svg');
+			    background-size: contain;
+
+				@include below($tablet) {
+					width: rem(40);
+				    height: rem(32);
+				}
+			}
+		}
+	}
+
+    &__images {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+		margin-bottom: rem(-30);
+		@extend .container;
+
+
+        @include below($mobile) {
+            width: 100%;
+            height: auto;
+            margin: 0;
+            margin-right: auto;
+            margin-bottom: rem(20);
+            margin-left: auto;
+            overflow: hidden;
+
+			&.opened {
+				.about__image {
+					&:nth-of-type(n+3) {
+		                display: block;
+		            }
+				}
+			}
+        }
+    }
+
+	&__subtext {
+		width: rem(980);
+		margin: 0 auto;
+		margin-bottom: rem(36);
+		color: #485058;
+		font-family: $helvetica;
+		font-size: rem(22);
+		font-weight: 300;
+		line-height: 32px;
+
+		@include below($tablet) {
+			width: rem(480);
+			font-size: rem(22);
+			margin-bottom: rem(20);
+		}
+
+		@include below($mobile) {
+			width: calc(100% - 16px);
+			margin: 0 rem(8);
+			font-size: rem(20);
+			margin-bottom: rem(50);
+		}
+	}
+
+	&__desc {
+		width: rem(980);
+		margin: 0 auto;
+		margin-bottom: rem(48);
+		color: #485058;
+		font-family: $helvetica;
+		font-size: rem(16);
+		font-weight: 300;
+		line-height: 22px;
+
+		@include below($tablet) {
+			width: rem(480);
+			font-size: rem(18);
+			margin-bottom: rem(40);
+			line-height: rem(26);
+		}
+
+		@include below($mobile) {
+			width: calc(100% - 16px);
+			margin: 0 rem(8);
+			margin-bottom: rem(40);
+			font-size: rem(18);
+
+
+		}
+
+
+	}
+
+    &__image {
+        width: 30%;
+        height: rem(255);
+        margin: 0 rem(10);
+        margin-bottom: rem(30);
+		object-fit: cover;
+		border-radius: rem(5);
+		overflow: hidden;
+
+        @include below($tablet) {
+            width: calc(50% - 20px);
+        }
+        @include below($mobile) {
+            width: 100%;
+            height: rem(215);
+            margin: 0;
+			border-radius: 0;
+
+            &:not(last-of-type) {
+                margin-bottom: rem(25);
+            }
+
+			&:nth-of-type(n+3) {
+                display: none;
+            }
+        }
+    }
+
+    &__content {
+        overflow: hidden;
+
+
+        .about__desc {
+            width: rem(980);
+            margin: 0 auto;
+
+            @include below($tablet) {
+                width: rem(480);
+            }
+            @include below($mobile) {
+				width: calc(100% - 16px);
+				margin: 0 rem(8);
+            }
+
+            &:not(:last-of-type) {
+                margin-bottom: rem(10);
+            }
+        }
+    }
+
+    &__rewards {
+        display: flex;
+        justify-content: center;
+        margin-bottom: rem(90);
+		@extend .container;
+
+		@include below($mobile) {
+			flex-direction: column;
+			align-items: center;
+
+			&.opened {
+				.about__reward {
+					&:nth-of-type(n+2) {
+		                display: flex;
+		            }
+				}
+			}
+		}
+
+
+    }
+
+    &__reward {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: calc(33.3% - 20px);
+        margin: 0 rem(10);
+
+        @include below($mobile) {
+            width: 100%;
+			margin: 0;
+			margin-bottom: rem(48);
+
+            h3,
+            p {
+                font-size: rem(18);
+
+            }
+
+            &:nth-of-type(n+2) {
+                display: none;
+            }
+
+
+        }
+
+        img {
+
+            margin-bottom: rem(10);
+
+			@include below($mobile) {
+				margin-bottom: 0;
+			}
+        }
+
+        h3 {
+            margin: 0;
+            margin-bottom: rem(10);
+            font-family: "Playfair Display";
+            font-size: rem(20);
+            text-align: center;
+            color: #50555a;
+            font-weight: 400;
+
+			@include below($mobile) {
+				font-size: rem(18);
+				line-height: rem(21);
+			}
+        }
+
+        p {
+            margin: 0;
+            margin-bottom: rem(10);
+
+            text-align: center;
+			-webkit-hyphens: none;
+			-ms-hyphens: none;
+			hyphens: none;
+        }
+    }
+
+    &__staff {
+        position: relative;
+
+		background-image: linear-gradient(180deg, $white 0%, #babec2 100%);
+
+		@include below($tablet) {
+            width: 100%;
+            height: auto;
+        }
+
+        img {
+			display: block;
+	        margin: 0 auto;
+
+			@include below($tablet) {
+	            width: 100%;
+	            height: auto;
+	        }
+			@include below($mobile) {
+				width: 100%;
+			    height: rem(370);
+			    object-fit: cover;
+	        }
+		}
+
+
+    }
+
+	.b-texture {
+		padding: rem(32) 0;
+		margin-bottom: rem(65);
+	}
+
+}

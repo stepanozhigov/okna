@@ -1,0 +1,61 @@
+.cities {
+    width: 780px;
+    padding: 0 0 70px 0;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    @media screen and(max-width: 850px) {
+        width: 90%;
+    }
+
+    @media screen and(max-width: 565px) {
+        justify-content: center;
+    }
+
+    &__title {
+        flex-basis: 100%;
+        margin-bottom: 63px;
+
+
+    }
+
+    &__item {
+        max-width: 236px;
+        margin-bottom: 30px;
+
+        @include below($tablet) {
+            max-width: none;
+            width: calc(33.3% - 24px);
+            margin: 0 12px;
+            margin-bottom: 30px;
+        }
+
+        @include below($mobile) {
+            max-width: none;
+            width: 100%;
+            margin: 0;
+
+            // &:not(:last-of-type) {
+            //     margin-bottom: rem(30);
+            // }
+        }
+    }
+
+    &__intro {
+        flex-basis: 100%;
+        margin: 50px 0 30px 0;
+    }
+
+    &__search {
+        flex-basis: 100%;
+    }
+
+    .second-title {
+        @include below($mobile) {
+            font-size: rem(26);
+            line-height: rem(32);
+        }
+    }
+}

@@ -1,0 +1,479 @@
+.climatCard {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: rem(22) rem(16);
+    padding-bottom: rem(32);
+    box-shadow: 0 0 rem(2) rgba(0, 0, 0, 0.16), 0 0 rem(8) rgba(0, 0, 0, 0), inset 0 rem(-1) 0 rgba(0, 0, 0, 0.12);
+    border-radius: rem(4);
+    background-color: #ffffff;
+    transition: box-shadow .3s;
+    cursor: pointer;
+
+    @include below($tablet) {
+        flex-direction: row;
+        padding: 0;
+    }
+
+    @include above($tablet) {
+        &:hover {
+            box-shadow: 0 0.75rem 0.75rem rgba(0,0,0,.16), 0 0 0.75rem rgba(0,0,0,.08), inset 0 -0.0625rem 0 rgba(0,0,0,.16);
+
+            .climatCard__button {
+                box-shadow: 0 8px 8px rgba(0, 0, 0, 0), 0 0 8px rgba(0, 0, 0, 0), inset 0 -1px 0 #a01414;
+                background-color: #dc1414;
+
+                &:hover {
+                    box-shadow: 0 8px 12px rgba(136, 0, 0, 0.20), 0 0 8px rgba(136, 0, 0, 0.12), inset 0 -1px 0 #a01414;
+                }
+
+            	&:active {
+            		background-color: #a01414;
+            		box-shadow: 0 8px 8px rgba(0, 0, 0, 0), 0 0 8px rgba(0, 0, 0, 0), inset 0 1px 0 #880000;
+            	}
+            }
+
+            .climatCard__preview-tip {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__hit,
+    &__best {
+        position: absolute;
+        top: 0;
+        right: rem(16);
+        display: none;
+        align-items: center;
+        padding: rem(16);
+        padding-bottom: rem(9);
+        border-radius: 0 0 rem(5) rem(5);
+        background-color: #dc1414;
+
+        @include below($mobile) {
+            display: none;
+        }
+
+        p {
+            margin: 0;
+            color: #ffffff;
+            font-family: $helvetica;
+            font-size: rem(16);
+            font-weight: 500;
+            line-height: rem(16);
+        }
+
+        svg {
+            margin-right: rem(8);
+        }
+    }
+
+    &__preview {
+        position: relative;
+        margin-bottom: rem(5);
+
+
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        &-tip {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            display: flex;
+            align-items: center;
+            width: rem(184);
+            padding: rem(10) rem(16);
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.64);
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity .3s;
+
+            @include below($tablet) {
+                display: none;
+            }
+
+            p {
+                margin: 0;
+                color: #dc1414;
+                font-family: $helvetica;
+                font-size: rem(14);
+            }
+
+            svg {
+                width: rem(16);
+                height: rem(11);
+                margin-right: rem(5);
+            }
+        }
+    }
+
+    &__heading {
+        display: flex;
+        flex-direction: column;
+
+        @include below($tablet) {
+            width: rem(151);
+            flex-shrink: 0;
+            margin-right: rem(16);
+        }
+
+        @include below($mobile) {
+            width: rem(148);
+            margin-right: rem(8);
+        }
+    }
+
+    &__controls {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: rem(32);
+
+        @include below($tablet) {
+            flex-direction: column;
+            margin: 0;
+            padding-left: rem(20);
+        }
+    }
+
+    &__comparison,
+    &__favourites {
+        margin: 0;
+        color: #485058;
+        font-family: $helvetica;
+        font-size: rem(14);
+        font-weight: 300;
+        text-decoration: none;
+        transition: color .3s;
+
+        @include below($tablet) {
+            font-size: rem(12);
+            line-height: rem(12);
+        }
+
+        svg {
+            stroke: #808890;
+            transition: stroke .3s;
+        }
+
+        &.active {
+            color: #dc1414;
+
+            svg {
+                stroke: #dc1414;
+            }
+        }
+    }
+
+    &__comparison {
+        @include below($tablet) {
+            margin-bottom: rem(26);
+        }
+
+        @include below($mobile) {
+            margin-bottom: rem(16);
+        }
+    }
+
+    &__info {
+        display: flex;
+        flex-wrap: wrap;
+
+        @include below($tablet) {
+            padding: rem(32) rem(16);
+            padding-left: 0;
+            padding-bottom: rem(20);
+        }
+
+        @include below($mobile) {
+            padding-bottom: rem(32);
+        }
+    }
+
+    &__name {
+        width: 100%;
+        margin: 0;
+        color: #485058;
+        font-family: $futura;
+        font-size: rem(20);
+        font-weight: 500;
+        letter-spacing: rem(1);
+        text-transform: uppercase;
+        text-align: left;
+
+        @include below($tablet) {
+            font-size: rem(16);
+            line-height: 1;
+            margin-bottom: rem(5);
+        }
+    }
+
+    &__model {
+        width: 100%;
+        margin: 0;
+        margin-bottom: rem(5);
+        color: #a7aaad;
+        font-family: $futura;
+        font-size: rem(16);
+        font-weight: 400;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        text-align: left;
+
+        @include below($tablet) {
+            font-size: rem(10);
+            line-height: 1;
+            margin-bottom: rem(9);
+        }
+    }
+
+    &__stars {
+        &.jq-ry-container {
+            padding: rem(8) 0;
+        }
+    }
+
+    &__ratimg {
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 100%;
+        padding-left: rem(80);
+        margin-bottom: rem(16);
+
+        @include below($tablet) {
+            padding-left: rem(200);
+        }
+
+        @include below($mobile) {
+            padding-left: 0;
+            justify-content: flex-start;
+        }
+
+        p {
+            margin: 0;
+            color: #50555a;
+            font-family: $helvetica;
+            font-size: rem(14);
+            font-weight: 300;
+            line-height: rem(14);
+
+            @include below($tablet) {
+                font-size: rem(12);
+                line-height: rem(12);
+            }
+        }
+
+        &::before {
+            position: absolute;
+            content: '';
+            width: rem(80);
+            height: rem(1);
+            background-color: #a7aaad;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+
+            @include below($tablet) {
+                width: rem(200);
+            }
+
+            @include below($mobile) {
+                display: none;
+            }
+        }
+    }
+
+    &__params {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: rem(24);
+
+        @include below($tablet) {
+            flex-direction: column;
+            margin-bottom: rem(16);
+        }
+
+        @include below($mobile) {
+            display: none;
+        }
+
+        p {
+            margin: 0;
+            color: #485058;
+            font-family: $helvetica;
+            font-size: rem(12);
+            font-weight: 300;
+            line-height: rem(20);
+
+            @include below($tablet) {
+                display: none;
+            }
+        }
+
+        dl {
+            display: none;
+            margin: 0;
+
+            &:not(:last-of-type) {
+                margin-bottom: rem(8);
+            }
+
+            @include below($tablet) {
+                display: flex;
+            }
+
+            dt {
+                color: #485058;
+                font-family: $helvetica;
+                font-size: rem(13);
+                font-weight: 500;
+                line-height: rem(20);
+                flex-shrink: 0;
+
+                @include below($tablet) {
+                    width: rem(68);
+                    margin-right: rem(16);
+                }
+            }
+
+            dd {
+                margin: 0;
+                color: #485058;
+                font-family: $helvetica;
+                font-size: rem(13);
+                font-weight: 300;
+                line-height: rem(20);
+            }
+        }
+    }
+
+    &__pay {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+
+        @include below($mobile) {
+            flex-direction: column;
+        }
+    }
+
+    &__old-price {
+        width: 100%;
+        margin: 0;
+        margin-bottom: rem(20);
+        display: flex;
+        align-items: center;
+
+        @include below($tablet) {
+            width: auto;
+            margin-right: rem(8);
+            margin-bottom: 0;
+        }
+
+        @include below($mobile) {
+            margin-right: 0;
+            margin-bottom: rem(22);
+        }
+
+        span {
+
+            &:first-of-type {
+                color: #babec2;
+                font-family: $helvetica;
+                font-size: rem(16);
+                font-weight: 300;
+                line-height: rem(16);
+                text-decoration: line-through;
+
+                @include below($tablet) {
+                    font-size: rem(10);
+                    line-height: rem(16);
+                }
+
+                @include below($mobile) {
+                    font-size: rem(12);
+                }
+            }
+
+            &:last-of-type {
+                margin-left: rem(12);
+                color: #dc1414;
+                font-family: $helvetica;
+                font-size: rem(16);
+                line-height: rem(16);
+                text-decoration: none;
+
+                @include below($tablet) {
+                    font-size: rem(10);
+                    line-height: rem(16);
+                }
+
+                @include below($mobile) {
+                    font-size: rem(12);
+                }
+            }
+        }
+    }
+
+    &__price {
+		margin: 0;
+        color: #dc1414;
+        font-family: $helvetica;
+        font-size: rem(24);
+        line-height: 1;
+
+        @include below($tablet) {
+            order: -1;
+            font-size: rem(20);
+            line-height: rem(16);
+            margin-right: rem(9);
+        }
+
+        @include below($mobile) {
+            font-size: rem(28);
+            line-height: rem(32);
+            margin-right: 0;
+        }
+    }
+
+    &__button {
+        @extend .button;
+        @extend .button_gray;
+        width: auto;
+        padding: rem(10);
+        padding-bottom: rem(9);
+        font-size: rem(14);
+
+        @include below($tablet) {
+            height: rem(40);
+            font-size: rem(14);
+        }
+
+        svg {
+            width: rem(18);
+            height: rem(17);
+            margin-right: rem(9);
+        }
+    }
+
+    &_hit {
+        .climatCard__hit {
+            display: flex;
+        }
+    }
+
+    &_best {
+        .climatCard__best {
+            display: flex;
+        }
+    }
+}

@@ -1,0 +1,240 @@
+@import 'mixins';
+@import 'variables';
+
+.main-offer {
+    background: url(/img/windows/main-offer.jpg) no-repeat center;
+    background-size: auto 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 87px 0 80px 0;
+    background-position: bottom center;
+
+
+
+    &__inner {
+        @include below($tablet) {
+            height: auto;
+        }
+    }
+
+    &__social {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 492px;
+    }
+    &__overtitle {
+        color: $white;
+        line-height: rem(32);
+        margin: 0;
+		margin-bottom: rem(2);
+        text-transform: uppercase;
+        letter-spacing: rem(4);
+
+		@include below($mobile) {
+			font-size: rem(10);
+            text-align: center;
+			line-height: rem(20);
+		}
+    }
+
+    &__title {
+        min-height: 106px;
+        color: $white;
+        text-align: left;
+        font-size: 58px;
+        margin-bottom: rem(8);
+        max-width: 580px;
+        height: 134px;
+        padding-bottom: 0;
+
+        &_center {
+            text-align: center;
+            max-width: 780px;
+        }
+
+        &:after {
+            content: none;
+        }
+
+        @include below($tablet) {
+            line-height: rem(54);
+        }
+
+        @media screen and (max-width: 650px){
+            margin: 0 auto;
+            text-align: center;
+            line-height: 31px;
+            font-size: 30px;
+            max-width: 85%;
+            height: auto;
+        }
+    }
+
+    &__subtitle {
+        margin: 0;
+        font-family: $helvetica;
+        font-weight: 400;
+        font-size: 32px;
+        margin-bottom: 40px;
+        text-align: left;
+        color: $white;
+		hyphens: none;
+
+        @include below($tablet) {
+            font-family: $futura;
+            font-size: 22px;
+            text-align: left;
+        }
+
+        @include below($mobile) {
+            padding: 0 40px;
+            text-align: center;
+			font-weight: 300;
+        }
+    }
+
+    &__form {
+        max-width: 380px;
+
+        .form__input {
+            @include below($tablet) {
+                margin-bottom: rem(16);
+
+                &:last-of-type {
+                    margin-bottom: rem(32);
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 650px){
+        padding: 30px 0 80px 0;
+
+        &__inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        &__social {
+            min-height: initial;
+            height: 255px;
+        }
+    }
+
+	.form__status {
+		align-items: flex-start;
+		color: $white;
+	}
+
+}
+
+.index-offer {
+    background: url(/img/windows/index-offer.jpg) no-repeat center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 97px 0 80px 0;
+
+    @media screen and (max-width: 650px){
+        padding: 65px 0;
+    }
+
+    &__title {
+        color: $white;
+        font-size: 48px;
+        margin-bottom: 15px;
+
+        @media screen and (max-width: 650px){
+            font-size: 30px;
+        }
+    }
+
+
+
+    &__intro {
+        color: $white;
+        font-size: 26px;
+        margin-bottom: 70px;
+
+        @media screen and (max-width: 650px){
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+    &__button {
+        margin-right: 15px;
+        margin-bottom: 15px;
+
+        @media screen and (max-width: 650px){
+            margin-right: 0;
+        }
+    }
+
+}
+
+.main-offers {
+    position: relative;
+    height: 650px;
+
+    &:hover {
+
+        .main-offers__arrow {
+            background-color: rgba(255, 255, 255, 0.7);
+
+            svg {
+                fill: #808890;
+            }
+
+            &:hover {
+                svg {
+                    fill: #dc1414;
+                }
+            }
+        }
+    }
+    &__arrow {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.4);
+        padding: 22px 25px;
+        border-top-left-radius: 33px;
+        border-bottom-left-radius: 33px;
+        transform: translateY(-50%);
+        border: none;
+        transition: background-color .3s;
+        outline: none;
+
+        svg {
+            transition: fill .3s;
+            fill: #babec2;
+        }
+
+
+
+
+
+        &_prev {
+            left: 0;
+            transform: translateY(-50%) rotate(180deg);
+        }
+    }
+
+    @media screen and (max-width: 640px) {
+        height: auto;
+        &__arrow {
+            padding: 15px 18px;
+        }
+    }
+}

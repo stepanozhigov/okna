@@ -1,0 +1,153 @@
+.offer {
+    justify-items: center;
+	color: #485058;
+    display: grid;
+
+    @include above($size_sm) {
+        justify-items: left;
+        max-width: rem(900);
+        position: relative;
+    }
+
+    &::before{
+        @include above($size_sm) {
+            content: url('/img/templates/ceilings/offer/new_year/banner_top.png');
+            position: absolute;
+            left: rem(100);
+            top: rem(-150);
+            // filter: blur(2px);
+        }
+    }
+
+    &::after{
+        @include above($size_md) {
+            content: url('/img/templates/ceilings/offer/new_year/banner_bottom.png');
+            position: absolute;
+            left: rem(-200);
+            bottom: rem(-120);
+            // filter: blur(3px);
+        }
+    }
+
+	&__title {
+        margin-bottom: rem(16);
+        font-size: rem(30);
+        font-family: $playfair;
+        line-height: 1.1;
+
+        @include above($size_sm) {
+            font-size: rem(56);
+            margin-bottom: rem(30);
+        }
+        @include above($size_md) {
+            font-size: rem(64);
+        }
+
+        b{
+            font-weight: 600;
+        }
+	}
+	&__img {
+		justify-self: center;
+        margin-bottom: rem(16);
+        width: rem(210);
+
+        @include above($size_sm) {
+            position: absolute;
+            width: rem(280);
+            right: rem(0);
+            top: rem(0);
+        }
+
+        @include above($size_md) {
+            width: rem(320);
+            top: rem(-30);
+        }
+
+	}
+	&__intro {
+        font-size: rem(20);
+        font-family: $helvetica;
+        line-height: 1.5;
+        margin-bottom: rem(16);
+        color: #dc1414;
+
+        @include above($size_sm) {
+            font-size: rem(32);
+            margin-bottom: rem(32);
+            color: #485058;
+        }
+    }
+
+    .formN{
+        position: relative;
+        z-index: 10;
+
+        @include above($size_sm) {
+            width: rem(302);
+        }
+
+        .inputN{
+            text-align: center;
+
+            @include above($size_sm) {
+                text-align: left;
+            }
+        }
+
+        .buttonN{
+            max-width: none;
+            background: #dc1414;
+
+            @include above($size_sm) {
+                background: #babec2;
+            }
+        }
+
+        &__agreement{
+            color: #babec2;
+
+            @include above($size_sm) {
+                text-align: left;
+            }
+        }
+    }
+}
+
+@keyframes snow {
+    0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+    100% {background-position: 500px 1000px, 400px 400px, 300px 300px;}
+}
+
+.snow-wrap {
+
+    &:after{
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-image: url(/img/templates/windows/offer/new_year/snowflake.png), url(/img/templates/windows/offer/new_year/snowflake3.png), url(/img/templates/windows/offer/new_year/snowflake2.png);
+        height: 100%;
+        animation: snow 20s linear infinite;
+    }
+    
+}
+
+.webp{
+
+    .offer {
+        &::before{
+            @include above($size_sm) {
+                content: url('/img/templates/windows/offer/new_year/banner_top.webp');
+            }
+        }
+
+        &::after{
+            @include above($size_md) {
+                content: url('/img/templates/windows/offer/new_year/banner_bottom.webp');
+            }
+        }
+    }
+}

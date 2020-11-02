@@ -1,0 +1,187 @@
+@import 'mixins';
+@import 'variables';
+
+.dir-message {
+    padding-top: 80px;
+    margin-bottom: 80px;
+
+    .titles {
+        margin-bottom: rem(32);
+
+		@include below($mobile) {
+			padding-top: rem(48);
+		}
+    }
+
+    &__person {
+        margin-bottom: -35px;
+		img {
+			box-shadow: 0 8px 8px rgba(0, 0, 0, 0.12), 0 0 8px rgba(0, 0, 0, 0.08);
+			border-radius: 50%;
+		}
+
+        @include below($mobile) {
+            margin: 0;
+
+
+        }
+    }
+    &__form {
+        display: flex;
+        flex-wrap: wrap;
+        width: 780px;
+        margin: 0 auto;
+        padding: 60px 0 60px 0;
+
+        &::before {
+            width: 580px;
+
+            @include below($mobile) {
+                width: 64vw;
+            }
+        }
+
+        @include below($tablet) {
+            width: 100%;
+        }
+
+		@include below($mobile) {
+			padding-top: rem(48);
+			padding-bottom: rem(64);
+		}
+
+    }
+
+    &__input {
+        width: 100%;
+
+        & + .error {
+            display: none!important;
+        }
+    }
+
+    &__textarea {
+        width: 100%;
+        height: rem(150);
+        margin: 0 rem(10);
+        margin-bottom: rem(35);
+        resize: none;
+
+        @include below($mobile) {
+            margin-bottom: rem(48);
+        }
+    }
+
+    &__bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        width: 100%;
+        margin: 0 rem(10);
+
+        @include below($tablet) {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+
+    &__submit {
+        width: rem(200);
+        padding-right: rem(40);
+        padding-left: rem(40);
+        margin-bottom: 16px;
+
+        font-size: rem(20);
+
+        @include below($tablet) {
+            width: rem(280);
+            margin: 0;
+            margin-bottom: rem(20);
+        }
+        @include below($mobile) {
+            width: 100%;
+        }
+    }
+
+    &__cuptcha {
+        width: rem(240);
+        height: rem(60);
+
+        background: $black;
+
+        @include below($tablet) {
+            margin: 0 rem(25);
+        }
+        @include below($phablet) {
+            margin: 0 rem(25);
+            margin-bottom: rem(30);
+        }
+        @include below($mobile) {
+            margin: 0;
+            margin-bottom: rem(30);
+        }
+    }
+
+    &__rules {
+        margin: 0;
+
+        font-size: rem(12);
+
+        @include below($tablet) {
+            width: 100%;
+            text-align: center;
+        }
+
+		a {
+			color: #50555a;
+		}
+    }
+
+    &__input-wrap {
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: calc(50% - 20px);
+        margin: 0 rem(10);
+        margin-bottom: rem(20);
+
+        @include below($mobile) {
+            width: 100%;
+        }
+
+        &:last-of-type {
+            width: 100%;
+        }
+
+		@include below($mobile) {
+			margin-bottom: rem(16);
+		}
+    }
+
+    &__status-send {
+        display: none;
+        width: rem(295);
+
+        text-align: center;
+    }
+
+    .socials {
+        justify-content: center;
+        margin-bottom: rem(48);
+
+        .socials__item {
+            &:not(:last-of-type) {
+                margin-right: rem(16);
+            }
+
+            @include below($mobile) {
+                width: auto;
+                margin-bottom: 0;
+            }
+        }
+    }
+}

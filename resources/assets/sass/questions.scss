@@ -1,0 +1,424 @@
+@import 'mixins';
+@import 'variables';
+
+.questions {
+    margin-bottom: rem(80);
+    overflow: hidden;
+
+    .titles {
+        margin-bottom: rem(64);
+    }
+
+    &__content {
+        position: relative;
+        padding-bottom: rem(39);
+        padding-top: rem(48);
+    }
+
+    &__filter {
+        position: relative;
+        z-index: 2;
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0 15%;
+        margin: 0 auto;
+        margin-right: rem(-10);
+        margin-bottom: rem(40);
+        margin-left: rem(-10);
+
+        @include below($tablet) {
+            padding: 0 10%;
+        }
+        @include below($tablet-small) {
+            padding: 0;
+        }
+        @include below($mobile) {
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: rem(25);
+            margin-right: auto;
+            margin-left: auto;
+            width: 100%;
+        }
+    }
+
+    &__infocard {
+        margin-bottom: rem(35);
+
+        @include below($mobile) {
+            margin-bottom: rem(40);
+        }
+    }
+
+    &__tag {
+        &:not(:last-of-type) {
+            margin-right: 20px;
+
+            @include below($mobile) {
+                margin-right: 0;
+            }
+        }
+        margin-bottom: 20px;
+    }
+
+    &__list {
+        position: relative;
+        z-index: 2;
+        // align-items: flex-start;
+        // display: flex;
+        // flex-wrap: wrap;
+
+
+        -moz-column-width: calc(393px - 16px);
+        -webkit-column-width: calc(393px - 16px);
+        -moz-column-gap: 16px;
+        -webkit-column-gap: 16px;
+
+        @include below($tablet) {
+            -moz-column-width: 300px;
+            -webkit-column-width: 300px;
+        }
+
+
+
+        &.show {
+            animation: fadeIn 1.2s;
+        }
+
+        &_all,
+        &_technical-information {
+            &::before {
+                position: absolute;
+                content: '';
+                top: 25%;
+                left: rem(-280);
+                width: rem(500);
+                height: rem(500);
+                background-image: url('/img/questions/tech-1.png');
+                background-size: contain;
+                z-index: -1;
+                background-repeat: no-repeat;
+
+                @include below($tablet) {
+                    display: none;
+                }
+
+                @media (min-resolution: 144dpi),
+                (min-resolution: 1.5dppx) {
+                    background: url('/img/questions/tech-1@2x.png');
+                }
+            }
+
+            &::after {
+                position: absolute;
+                content: '';
+                top: 66.6%;
+                right: rem(-170);
+                width: rem(350);
+                height: rem(800);
+                background-image: url('/img/questions/tech-2.png');
+                background-size: contain;
+                z-index: -1;
+                background-repeat: no-repeat;
+
+                @include below($tablet) {
+                    width: rem(262);
+                    height: rem(600);
+                    right: rem(-58);
+                }
+
+                @media (min-resolution: 144dpi),
+                (min-resolution: 1.5dppx) {
+                    background: url('/img/questions/tech-2.png');
+                }
+            }
+        }
+
+        &_price-sales {
+            &::before {
+                position: absolute;
+                content: '';
+                top: 25%;
+                left: rem(-250);
+                width: rem(452);
+                height: rem(444);
+                background-image: url('/img/questions/discount-2.png');
+                background-size: contain;
+                z-index: -1;
+                background-repeat: no-repeat;
+
+                @include below($tablet) {
+                    width: rem(339);
+                    height: rem(333);
+                    left: rem(-138);
+                }
+
+                @media (min-resolution: 144dpi),
+                (min-resolution: 1.5dppx) {
+                    background: url('/img/questions/discount-2@2x.png');
+                }
+            }
+
+            &::after {
+                position: absolute;
+                content: '';
+                top: 66.6%;
+                right: rem(-346);
+                width: rem(648);
+                height: rem(742);
+                background-image: url('/img/questions/discount-1.png');
+                background-size: contain;
+                z-index: -1;
+                background-repeat: no-repeat;
+
+                @include below($tablet) {
+                    width: rem(486);
+                    height: rem(556);
+                    right: rem(-234);
+                }
+
+                @media (min-resolution: 144dpi),
+                (min-resolution: 1.5dppx) {
+                    background: url('/img/questions/discount-1@2x.png');
+                }
+            }
+        }
+
+        &_basic-terms {
+            &::before {
+                position: absolute;
+                content: '';
+                top: 25%;
+                left: rem(-350);
+                width: rem(647);
+                height: rem(711);
+                background-image: url('/img/questions/terms-1.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                z-index: -1;
+
+                @include below($tablet) {
+                    width: rem(485);
+                    height: rem(533);
+                    left: rem(-238);
+                }
+
+                @media (min-resolution: 144dpi),
+                (min-resolution: 1.5dppx) {
+                    background: url('/img/questions/terms-1@2x.png');
+                }
+            }
+
+            &::after {
+                position: absolute;
+                content: '';
+                top: 66.6%;
+                right: rem(-220);
+                width: rem(420);
+                height: rem(549);
+                background-image: url('/img/questions/terms-src-2.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                z-index: -1;
+
+                @include below($tablet) {
+                    width: rem(315);
+                    height: rem(411);
+                    right: rem(-108);
+                }
+
+                @media (min-resolution: 144dpi),
+                (min-resolution: 1.5dppx) {
+                    background: url('/img/questions/terms-src-2@2x.png');
+                }
+            }
+        }
+
+        &_warranty {
+            &::before {
+                position: absolute;
+                content: '';
+                top: 25%;
+                left: rem(-434);
+                width: rem(867);
+                height: rem(964);
+                background-image: url('/img/questions/sert-1.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                z-index: -1;
+
+                @include below($tablet) {
+                    width: rem(650);
+                    height: rem(723);
+                    left: rem(-122);
+                }
+
+                @media (min-resolution: 144dpi),
+                (min-resolution: 1.5dppx) {
+                    background: url('/img/questions/sert-1@2x.png');
+                }
+            }
+
+            &::after {
+                position: absolute;
+                content: '';
+                top: 66.6%;
+                right: rem(-412);
+                width: rem(731);
+                height: rem(819);
+                background-image: url('/img/questions/sert-2.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                z-index: -1;
+
+                @include below($tablet) {
+                    width: rem(548);
+                    height: rem(614);
+                    right: rem(-300);
+                }
+
+                @media (min-resolution: 144dpi),
+                (min-resolution: 1.5dppx) {
+                    background: url('/img/questions/sert-2@2x.png');
+                }
+            }
+        }
+
+        &_install {
+            &::before {
+                position: absolute;
+                content: '';
+                top: 25%;
+                left: rem(-190);
+                width: rem(284);
+                height: rem(600);
+                background-image: url('/img/questions/Install1.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                z-index: -1;
+
+                @include below($tablet) {
+                    width: rem(213);
+                    height: rem(450);
+                    left: rem(-78);
+                }
+
+                @media (min-resolution: 144dpi),
+                (min-resolution: 1.5dppx) {
+                    background: url('/img/questions/Install1@2x.png');
+                }
+            }
+
+            &::after {
+                position: absolute;
+                content: '';
+                top: 66.6%;
+                right: rem(-180);
+                width: rem(350);
+                height: rem(369);
+                background-image: url('/img/questions/Install-src-2.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                z-index: -1;
+
+                @include below($tablet) {
+                    width: rem(262);
+                    height: rem(276);
+                    right: rem(-68);
+                }
+
+                @media (min-resolution: 144dpi),
+                (min-resolution: 1.5dppx) {
+                    background: url('/img/questions/Install-src-2@2x.png');
+                }
+            }
+        }
+
+        @include below($tablet-small) {
+            &::before,
+            &::after {
+                display: none;
+            }
+        }
+    }
+
+    &__card {
+        // display: flex;
+        // flex-direction: column;
+        // align-items: flex-start;
+        // width: calc(25% - 16px);
+        // padding-top: rem(45);
+        // padding-right: rem(20);
+        // padding-bottom: rem(50);
+        // padding-left: rem(20);
+        // margin: 0 rem(8);
+        // margin-bottom: rem(25);
+        // overflow: hidden;
+
+        display: inline-block;
+        padding-top: rem(45);
+        padding-right: rem(20);
+        padding-bottom: rem(50);
+        padding-left: rem(20);
+        width:  100%;
+        margin-bottom: rem(25);
+
+
+        @include above($tablet) {
+            transition: box-shadow .3s;
+        }
+
+
+        &:hover {
+            box-shadow: 0 rem(8) rem(8) rgba(0, 0, 0, .12),
+            0 0 rem(8) rgba(0, 0, 0, .08),
+            inset 0 rem(-1) 0 rgba(0, 0, 0, .12);
+        }
+
+    }
+}
+
+.question {
+    &__title {
+        position: relative;
+        padding-bottom: rem(16);
+        margin-bottom: rem(24);
+
+        &::after {
+            position: absolute;
+            content: '';
+
+            bottom: 0;
+            left: 0;
+            width: rem(120);
+            height: rem(1);
+            background-color: #9ba0a5;
+        }
+    }
+
+    &__text {
+        max-height: 68px;
+        overflow: hidden;
+        margin-bottom: rem(8);
+
+        @include below($tablet) {
+            max-height: 76px;
+        }
+
+        &_toggled {
+            max-height: initial;
+        }
+
+
+    }
+
+    &__more {
+        border-bottom: 1px dashed #a5aaaf;
+        line-height: 1;
+        cursor: pointer;
+        color: #a5aaaf;
+
+    }
+}

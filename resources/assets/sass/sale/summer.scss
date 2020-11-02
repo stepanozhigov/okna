@@ -1,0 +1,163 @@
+.offer {
+    background-image: url('/img/templates/windows/offer/summer/bg-sm.jpg');
+    background-position: 42%;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    height: rem(600);
+    padding-top: rem(170);
+
+    @include above($size_sm) {
+        background-position: 50%;
+        padding-top: rem(240);
+        height: rem(760);
+    }
+    @include above($size_md) {
+        background-image: url('/img/templates/windows/offer/summer/bg-lg.jpg');
+        height: rem(610);
+        padding-top: rem(185);
+    }
+
+
+    &__wrapper{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+        z-index: 10;
+        max-width: rem(414);
+        
+
+        @include above($size_sm) {
+            align-items: flex-start;
+            position: relative;
+        }
+        @include above($size_md) {
+            padding-left: rem(380);
+            max-width: none;
+        }
+
+    }
+
+    &__wrap {
+        display: flex;
+        justify-content: center;
+    }
+    
+	&__title {
+        margin-bottom: rem(16);
+        font-size: rem(32);
+        font-family: $playfair;
+        font-weight: 700;
+        line-height: 1.25;
+        color: #125359;
+        text-align: center;
+        padding-left: rem(38);
+
+        @include above($size_xss) {
+            font-size: rem(40);
+            padding-left: rem(60);
+        }
+
+        @include above($size_sm) {
+            font-size: rem(48);
+            text-align: left;
+            padding-left: 0;
+        }
+        @include above($size_md) {
+            font-size: rem(64);
+            margin-bottom: rem(8);
+        }
+
+	}
+
+	&__intro {
+        font-size: rem(18);
+        font-family: $helvetica;
+        line-height: 1.4;
+        letter-spacing: rem(-0.5);
+        color: #125359;
+        text-align: center;
+        padding-left: rem(38);
+
+        @include above($size_xss) {
+            padding-left: rem(60);
+        }
+
+        @include above($size_sm) {
+            font-size: rem(28);
+            text-align: left;
+            max-width: rem(390);
+            line-height: 1.29;
+            padding-left: 0;
+        }
+        @include above($size_md) {
+            font-size: rem(24);
+            letter-spacing: rem(-0.45);
+            line-height: 1.67;
+            max-width: rem(480);
+        }
+    }
+
+    .formN{
+        margin-top: rem(32);
+        // max-width: rem(304);
+        padding-left: rem(38);
+
+        @include above($size_xss) {
+            padding-left: rem(60);
+        }
+
+        @include above($size_sm) {
+            margin-top: rem(48);
+            width: rem(360);
+            max-width: none; 
+            padding-left: 0;
+        }
+        @include above($size_md) {
+            margin-top: rem(20);
+        }
+
+        .inputN{
+            border: 1px solid #b8e2e6;
+        }
+
+        ::-webkit-input-placeholder { /* Chrome */
+            color: #b8e2e6;
+        }
+        :-ms-input-placeholder { /* IE 10+ */
+            color: #b8e2e6;
+        }
+        ::-moz-placeholder { /* Firefox 19+ */
+            color: #b8e2e6;
+        }
+        :-moz-placeholder { /* Firefox 4 - 18 */
+            color: #b8e2e6;
+        }
+
+        .buttonN{
+            max-width: none;
+            background: #d74969;
+            box-shadow: inset 0 -1px 0 #651f05;
+
+            @include above($size_sm) {
+                max-width: rem(304);
+                justify-self: flex-start;
+            }
+
+        }
+
+        &__agreement{
+            color: #a98202;
+
+            @include above($size_sm) {
+                text-align: left;
+                max-width: rem(280);
+            }
+
+            @include above($size_md) {
+                color: #1f8d99;
+                margin-top: rem(32);
+            }
+        }
+    }
+}

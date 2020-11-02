@@ -1,0 +1,69 @@
+.categoryLink {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: calc(20% - 120px);
+    margin: 0 rem(60);
+    margin-bottom: rem(75);
+
+    text-decoration: none;
+
+    @include below($tablet) {
+        width: calc(25% - 70px);
+        margin: 0 rem(35);
+        margin-bottom: rem(75);
+    }
+
+    @include below($tablet-small) {
+        width: calc(33.3% - 70px);
+        margin: 0 rem(35);
+        margin-bottom: rem(75);
+    }
+
+    @include below($mobile) {
+        width: 100%;
+        flex-direction: row;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    &__image {
+        width: auto;
+        height: 100%;
+        flex-shrink: 0;
+        width: rem(180);
+        height: rem(180);
+        margin-bottom: rem(24);
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: 0 8px 8px rgba(0, 0, 0, 0.12), 0 0 8px rgba(0, 0, 0, 0.08), inset 0 -1px 0 rgba(0, 0, 0, 0.12);
+
+        @include below($mobile) {
+            width: rem(80);
+            height: rem(80);
+            margin-right: rem(16);
+            margin-bottom: 0;
+        }
+    }
+
+    &__name {
+        margin: 0;
+
+        font-size: rem(22);
+        text-align: center;
+
+        transition: color .3s;
+
+        @include above($desktop) {
+            will-change: transform;
+        }
+        @extend .text;
+        @include below($tablet) {
+            font-size: rem(22);
+        }
+        @include below($mobile) {
+            font-size: rem(20);
+        }
+    }
+}

@@ -1,0 +1,353 @@
+.reason {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    @include above($tablet) {
+        width: rem(880);
+    }
+    @include below($mobile) {
+        position: relative;
+
+        flex-direction: column;
+    }
+
+    &:nth-of-type(1) {
+        .reason__image-wrap {
+            &::before {
+                width: rem(180);
+                height: rem(160);
+
+                background-image: url('/img/ceilings/item-1.png');
+                background-repeat: no-repeat;
+
+                @include above($desktop) {
+                    top: rem(140);
+                }
+                @include between($phablet, $tablet) {
+                    top: rem(-60);
+                    right: rem(-120);
+                }
+                @include below($mobile) {
+                    top: -40%;
+                }
+            }
+        }
+    }
+
+    &:nth-of-type(2) {
+        .reason__image-wrap {
+            &::before {
+                width: rem(180);
+                height: rem(195);
+
+                background-image: url('/img/ceilings/item-2.png');
+                background-repeat: no-repeat;
+
+                @include above($desktop) {
+                    top: rem(110);
+                }
+                @include between($phablet, $tablet) {
+                    top: rem(-70);
+                    left: rem(-140);
+                }
+                @include below($mobile) {
+                    top: -50%;
+                }
+            }
+        }
+    }
+
+    &:nth-of-type(3) {
+        .reason__image-wrap {
+            &::before {
+                width: rem(180);
+                height: rem(195);
+
+                background-image: url('/img/ceilings/item-3.png');
+                background-repeat: no-repeat;
+
+                @include above($desktop) {
+                    top: rem(110);
+                }
+                @include between($phablet, $tablet) {
+                    top: rem(-70);
+                    right: rem(-140);
+                }
+                @include below($mobile) {
+                    top: -50%;
+                }
+            }
+        }
+    }
+
+    &:nth-of-type(4) {
+        .reason__image-wrap {
+            &::before {
+                width: rem(180);
+                height: rem(195);
+
+                background-image: url('/img/ceilings/item-4.png');
+                background-repeat: no-repeat;
+
+                @include above($desktop) {
+                    top: rem(110);
+                }
+                @include between($phablet, $tablet) {
+                    top: rem(-70);
+                    left: rem(-140);
+                }
+                @include below($mobile) {
+                    top: -50%;
+                }
+            }
+        }
+    }
+
+    &:nth-of-type(5) {
+        .reason__image-wrap {
+            &::before {
+                width: rem(180);
+                height: rem(195);
+
+                background-image: url('/img/ceilings/item-5.png');
+                background-repeat: no-repeat;
+
+                @include above($desktop) {
+                    top: rem(110);
+                }
+                @include between($phablet, $tablet) {
+                    top: rem(-70);
+                    right: rem(-140);
+                }
+                @include below($mobile) {
+                    top: -50%;
+                }
+            }
+        }
+    }
+
+
+    &:nth-child(odd) {
+        .reason__image-wrap {
+            margin-right: rem(20);
+
+            @include below($mobile) {
+                margin-right: 0;
+            }
+        }
+    }
+
+    &:nth-child(even) {
+        margin-left: auto;
+
+        .reason__content {
+            margin-right: rem(20);
+
+            @include above($phablet) {
+                order: 0;
+            }
+            @include below($mobile) {
+                margin-right: 0;
+            }
+        }
+    }
+
+
+    &__image-wrap {
+        position: relative;
+
+        order: 1;
+        flex-shrink: 0;
+
+        @include above($desktop) {
+            &::before {
+                left: rem(-95);
+            }
+        }
+        @include below($tablet) {
+            &::before {
+                transform: rotate(90deg);
+            }
+        }
+        @include below($mobile) {
+            margin-bottom: rem(20);
+        }
+
+        &::before {
+            content: '';
+
+            position: absolute;
+
+            display: block;
+
+            @include below($mobile) {
+                left: 50%;
+
+                transform: translateX(-50%) rotate(90deg);
+            }
+        }
+    }
+
+    &__image-inner {
+        position: relative;
+        z-index: 2;
+
+        width: rem(380);
+        height: rem(250);
+        overflow: hidden;
+
+        border-radius: rem(5);
+        box-shadow: 0 0 0 rem(5) rgba($white, 1);
+
+        @include below($tablet) {
+            width: rem(350);
+            height: rem(230);
+
+            box-shadow: 0 0 0 rem(10) rgba($white, 1);
+        }
+        @include below($mobile) {
+            width: 100%;
+            height: rem(200);
+        }
+    }
+
+    &__image {
+        display: block;
+        width: 100%;
+        height: 100%;
+
+        border-radius: rem(5);
+    }
+
+    &__content {
+        position: relative;
+        z-index: 3;
+
+        order: 1;
+
+        @include between($phablet, $tablet) {
+            position: relative;
+            z-index: 2;
+        }
+    }
+
+    &__title {
+        margin-top: 0;
+        margin-bottom: rem(20);
+
+        @extend .third-title;
+        @include below($mobile) {
+            width: 100%;
+
+            text-align: center;
+        }
+    }
+
+    &__text {
+        margin-top: 0;
+        margin-bottom: 0;
+
+        @extend .text;
+        @include below($mobile) {
+            padding-right: rem(10);
+            padding-left: rem(10);
+        }
+    }
+
+    &__more {
+        display: none;
+    }
+
+    &_big {
+        @include below($tablet) {
+            &:not(:last-of-type) {
+                margin-bottom: rem(140);
+            }
+        }
+
+        .reason__text {
+            max-height: rem(172);
+            margin-bottom: rem(20);
+            overflow: hidden;
+
+            @include below($tablet) {
+                max-height: rem(194);
+            }
+            @include below($mobile) {
+                max-height: rem(220);
+            }
+
+            &_show {
+                max-height: 100%;
+            }
+        }
+
+        .reason__more {
+            font-weight: 300;
+            color: #a5aaaf;
+            text-decoration: underline;
+
+            @extend .link;
+            @include below($tablet) {
+                display: block;
+            }
+            @include below($mobile) {
+                margin-left: rem(10);
+            }
+        }
+    }
+
+    &_reverse {
+        flex-direction: row-reverse;
+
+        @include below($mobile) {
+            position: relative;
+
+            flex-direction: column;
+        }
+
+        &:nth-child(even) {
+            margin-right: auto;
+            margin-left: 0;
+        }
+
+        &:nth-child(odd) {
+            margin-right: 0;
+            margin-left: auto;
+
+            .reason__image-wrap {
+                margin-right: 0;
+                margin-left: rem(20);
+            }
+        }
+
+        .reason__text {
+            max-height: rem(172);
+            margin-bottom: rem(20);
+            overflow: hidden;
+
+            @include below($tablet) {
+                max-height: rem(194);
+            }
+            @include below($mobile) {
+                max-height: rem(220);
+            }
+
+            &_show {
+                max-height: 100%;
+            }
+        }
+
+        .reason__more {
+            font-weight: 300;
+            color: #a5aaaf;
+            text-decoration: underline;
+
+            @extend .link;
+            @include below($mobile) {
+                margin-left: rem(10);
+            }
+        }
+    }
+}

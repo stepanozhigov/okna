@@ -1,0 +1,157 @@
+.geoConfirm {
+    background-color: $grey_abbey;
+
+    &__content {
+        display: flex;
+        align-items: baseline;
+        justify-content: flex-end;
+        padding: rem(15) 0;
+
+        @include below($tablet-small) {
+            padding: rem(10) 0;
+        }
+        @include below($mobile) {
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: rem(20);
+            padding-bottom: rem(10);
+        }
+    }
+
+    &__city {
+        display: flex;
+        margin-top: auto;
+        margin-right: rem(90);
+        margin-bottom: auto;
+
+        @include below($tablet-small) {
+            margin-right: rem(60);
+        }
+        @include below($mobile) {
+            justify-content: center;
+            width: 100%;
+            margin-right: 0;
+            margin-bottom: 20px;
+        }
+    }
+
+    &__icon {
+        margin-right: rem(10);
+
+        stroke: $white;
+    }
+
+    &__confirm {
+        width: rem(120);
+        height: rem(30);
+        padding: 0;
+        margin-right: rem(35);
+        cursor: pointer;
+        color: $white;
+
+        border: none;
+        border-radius: rem(5);
+        outline: none;
+        background-color: $grey_chateau;
+
+        @extend .text;
+        @include below($tablet-small) {
+            width: rem(130);
+            height: rem(40);
+            margin-right: rem(30);
+        }
+        @include below($mobile) {
+            margin-right: rem(25);
+        }
+    }
+
+    &__choose {
+        height: rem(30);
+        padding: 0;
+        cursor: pointer;
+        color: $white;
+        text-decoration: underline;
+
+        border: none;
+        outline: none;
+        background-color: transparent;
+
+        @extend .text;
+    }
+
+    &__city-text {
+        margin: 0;
+
+        color: $white;
+
+        @extend .text;
+    }
+
+    &__choose-content {
+        display: flex;
+        justify-content: space-between;
+
+        @include below($mobile) {
+            flex-wrap: wrap;
+            margin-right: rem(-27);
+        }
+    } 
+
+    &__choose-city {
+        position: relative;
+
+        display: block;
+        width: 100%;
+        padding: rem(20) 0;
+        margin-top: rem(15);
+
+        border-top: rem(1) solid #d0d2d4;
+
+        @include below($mobile) {
+            margin-top: rem(10);
+        }
+
+        &::after,
+        &::before {
+            content: '';
+
+            position: absolute;
+            z-index: 3;
+            z-index: 99999;
+            top: rem(-10);
+            right: rem(45);
+
+            width: 0;
+            height: 0;
+
+            border-width: rem(10) rem(10) 0;
+            border-style: solid;
+
+            @include below($mobile) {
+                right: 25%;
+            }
+        }
+
+        &::before {
+            border-color: $white transparent transparent;
+            transform: translateY(-1px) rotate(180deg);
+        }
+
+        &::after {
+            border-color: $grey_abbey transparent transparent;
+            transform: rotate(180deg);
+        }
+    }
+
+    &__choose-link {
+        color: $white;
+        cursor: pointer;
+        @extend .text;
+        @include below($mobile) {
+            margin-right: rem(27);
+            margin-bottom: rem(25);
+
+            font-size: rem(16);
+        }
+    }
+}

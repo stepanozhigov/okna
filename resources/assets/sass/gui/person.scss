@@ -1,0 +1,39 @@
+.person {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-shrink: 0;
+    }
+
+    &__social {
+        position: absolute;
+        right: 2px;
+        bottom: 4px;
+		outline: none;
+		border-radius: 50%;
+		border: none;
+    }
+    &__photo {
+        position: relative;
+        margin-bottom: 30px;
+        object-fit: cover;
+    }
+
+    &__name {
+        color: #475059;
+        font-family: "Helvetica Neue";
+        font-size: 20px;
+        text-decoration: none;
+        font-weight: 500;
+        margin: 0 0 10px 0;
+        line-height: 24px;
+    }
+
+}

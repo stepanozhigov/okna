@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="39" height="46" viewBox="0 0 39 46">
+	<defs>
+		<path id="r0eja" d="M673.32 49l.68 1.64c-11.88 5.81-17.65 18.2-18.5 35.36h-2c-.85-17.17-6.62-29.55-18.5-35.36l.68-1.64a46.4 46.4 0 0 0 37.64 0m-18.82-9a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9" />
+	</defs>
+	<g>
+		<g transform="translate(-635 -40)">
+			<use fill="#e31624" xlink:href="#r0eja" />
+		</g>
+	</g>
+</svg>

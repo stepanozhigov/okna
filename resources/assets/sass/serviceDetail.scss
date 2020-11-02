@@ -1,0 +1,172 @@
+.serviceDetail {
+
+	@extend .container;
+	@extend .container_thin;
+
+    .reason {
+        &:not(:last-of-type) {
+			margin-bottom: rem(80);
+		}
+
+        @include below($tablet) {
+            margin-bottom: rem(160);
+        }
+
+        &:last-of-type {
+            margin-bottom: rem(130);
+
+            @include below($tablet) {
+                margin-bottom: rem(85);
+            }
+        }
+    }
+
+	&__info {
+		width: rem(780);
+		padding-bottom: rem(75);
+		margin: 0 auto;
+		margin-top: rem(130);
+
+		@include below($tablet-small) {
+			width: 100%;
+		}
+		@include below($mobile) {
+			padding: 0 rem(15);
+		}
+
+		h2 {
+			margin: 0;
+			margin-bottom: rem(25);
+
+			font-size: rem(20);
+			text-align: center;
+
+			@extend .third-title;
+
+			@include below($mobile) {
+				font-size: rem(18);
+			}
+		}
+
+		p {
+			margin: 0;
+
+			@extend .text;
+			@include below($tablet) {
+				font-size: rem(18);
+			}
+
+			&:nth-of-type(3) {
+				@include below($mobile) {
+					height: rem(90);
+					margin-bottom: rem(10);
+					overflow: hidden;
+				}
+			}
+		}
+
+		&-mobile {
+			display: none;
+
+			@include below($mobile) {
+				display: block;
+				margin-top: rem(100);
+
+				p {
+					height: rem(155);
+					margin-bottom: rem(10);
+					overflow: hidden;
+				}
+			}
+		}
+
+		&-desc {
+			p:nth-of-type(2) {
+				height: rem(155);
+				overflow: hidden;
+
+				@include below($mobile) {
+					height: rem(90);
+					overflow: hidden;
+				}
+			}
+		}
+
+		// &-warning {
+		// 	padding-top: rem(50);
+		// 	padding-bottom: rem(40);
+		// 	margin-bottom: rem(85);
+		//
+		// 	background-image: url('%=static=%content/warning.png');
+		// 	background-repeat: no-repeat;
+		// 	background-position: center;
+		// 	background-size: contain;
+		//
+		// 	@include below($mobile) {
+		// 		background-position: 50% 60%;
+		// 		background-size: rem(244) rem(244);
+		// 	}
+		// 	@include below($tablet) {
+		// 		font-size: rem(18);
+		// 	}
+		//
+		// 	h2 {
+		// 		margin-bottom: rem(30);
+		// 	}
+		//
+		// 	p {
+		// 		margin: 0;
+		//
+		// 		font-size: rem(22);
+		// 		text-align: center;
+		//
+		// 		@extend .text;
+		// 	}
+		// }
+
+		q {
+			position: relative;
+
+			display: inline-block;
+			padding: 0 rem(90);
+			padding-top: rem(90);
+			padding-bottom: rem(50);
+
+			font-family: $playfair;
+			font-size: rem(24);
+			font-style: italic;
+			line-height: 1.5;
+			text-align: center;
+
+			@include below($tablet) {
+				padding: 0 rem(25);
+				padding-top: rem(95);
+				padding-bottom: rem(45);
+
+				font-size: rem(30);
+				color: $black;
+			}
+			@include below($mobile) {
+				padding-right: 0;
+				padding-left: 0;
+
+				line-height: 1.1;
+				text-align: left;
+			}
+
+			&::before {
+				content: '';
+
+				position: absolute;
+				top: rem(30);
+				left: calc(50% - 12px);
+
+				width: rem(30);
+				height: rem(24);
+
+				background: url('/img/gui/quote_grey_light.svg');
+				background-size: contain;
+			}
+		}
+	}
+}

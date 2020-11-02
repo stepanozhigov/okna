@@ -1,0 +1,40 @@
+.lamps {
+	@extend .container;
+    padding-bottom: rem(120);
+
+	.titles {
+		margin-bottom: rem(130);
+	}
+
+    &__content {
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: rem(-10);
+        margin-bottom: rem(-120);
+        margin-left: rem(-10);
+
+        @include below($mobile) {
+            margin-right: 0;
+            margin-left: 0;
+        }
+    }
+
+	.lamp {
+        width: calc(25% - 20px);
+        margin: 0 rem(10);
+        margin-bottom: rem(120);
+
+        @include below($tablet-small) {
+            width: calc(50% - 20px);
+
+            &:nth-of-type(n+7) {
+                display: none;
+            }
+        }
+        @include below($mobile) {
+            width: 100%;
+            margin: 0;
+            margin-bottom: rem(120);
+        }
+    }
+}

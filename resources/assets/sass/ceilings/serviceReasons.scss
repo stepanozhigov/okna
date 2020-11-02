@@ -1,0 +1,113 @@
+.serviceReasons {
+	@extend .container;
+
+    @include below($tablet-small) {
+        display: none;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__title {
+        margin: 0;
+        margin-bottom: rem(40);
+
+        @extend .third-title;
+    }
+
+    &__reasons {
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+        margin-bottom: rem(35);
+    }
+
+    &__reason-text {
+        position: relative;
+        z-index: 2;
+
+        font-size: rem(17);
+
+        @extend .text;
+    }
+
+    &__reason {
+        position: relative;
+
+        width: rem(330);
+        padding-top: rem(35);
+        padding-left: rem(80);
+
+        &:nth-of-type(1) {
+            &::before {
+                content: '';
+
+                position: absolute;
+                top: 0;
+                left: 0;
+
+                width: rem(160);
+                height: rem(140);
+
+                background-image: url('/img/gui/item-1-horozontal.png');
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+        }
+
+        &:nth-of-type(2) {
+            padding-bottom: rem(60);
+
+            &::before {
+                content: '';
+
+                position: absolute;
+                top: 0;
+                left: 0;
+
+                width: rem(190);
+                height: rem(140);
+
+                background-image: url('/img/gui/item-2-horozontal.png');
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+
+            &::after {
+                left: rem(80);
+
+                margin: 0;
+            }
+        }
+
+        &:nth-of-type(3) {
+            &::before {
+                content: '';
+
+                position: absolute;
+                top: 0;
+                left: 0;
+
+                width: rem(190);
+                height: rem(140);
+
+                background-image: url('/img/gui/item-3-horozontal.png');
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+        }
+    }
+
+    &__desc {
+        width: 65%;
+        margin: 0;
+
+        font-size: rem(17);
+        text-align: center;
+
+        @extend .text;
+    }
+}

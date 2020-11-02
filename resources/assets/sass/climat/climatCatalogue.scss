@@ -1,0 +1,240 @@
+.climatCatalogue {
+    @extend .container;
+    display: flex;
+    flex-direction: column;
+	align-items: center;
+
+    &__filterLink {
+        margin-bottom: rem(12);
+        color: #485058;
+        font-family: $helvetica;
+        font-size: rem(20);
+        font-weight: 300;
+        line-height: rem(30);
+        text-align: center;
+        text-decoration: none;
+
+        @include above($mobile) {
+            display: none;
+        }
+    }
+
+    &__content {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        @extend .b-texture;
+        @extend .b-texture_sand;
+		margin-bottom: rem(48);
+        width: 100%;
+
+        @include below($mobile) {
+            flex-direction: column;
+
+            &::before {
+                display: none;
+            }
+        }
+
+        &::before {
+            top: rem(46);
+            height: calc(100% - 92px);
+        }
+
+        aside {
+            display: flex;
+            flex-direction: column;
+
+            .linkBlock {
+                width: rem(280);
+                height: rem(217);
+
+				@include below($tablet) {
+					width: rem(236);
+					height: rem(320);
+				}
+
+                @include below($mobile) {
+                    width: 100%;
+                    height: rem(217);
+                }
+
+                &:not(:last-of-type) {
+                    margin-bottom: rem(32);
+
+					@include below($tablet) {
+						margin-bottom: rem(16);
+					}
+
+                    @include below($mobile) {
+                        margin-bottom: rem(24);
+                    }
+                }
+
+                &:first-of-type {
+                    margin-top: rem(41);
+
+					@include below($tablet) {
+						margin-top: rem(16);
+					}
+
+                    @include below($mobile) {
+                        margin-top: rem(40);
+                    }
+                }
+            }
+        }
+    }
+
+	&__link {
+		@extend .button;
+	}
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        width: calc(100% - 280px);
+        margin-right: rem(-10);
+        margin-left: rem(-10);
+        margin-bottom: rem(-32);
+
+        @include below($tablet) {
+            width: calc(100% - 252px);
+            margin-right: 0;
+            margin-left: 0;
+            margin-bottom: rem(-16);
+        }
+
+        @include below($mobile) {
+            width: 100%;
+            margin-right: 0;
+            margin-left: 0;
+        }
+
+        .climatCard {
+            width: calc(33.3% - 20px);
+            margin: 0 rem(10);
+            margin-bottom: rem(32);
+
+            @include below($tablet) {
+                width: 100%;
+                margin: 0;
+                margin-bottom: rem(16);
+            }
+        }
+    }
+
+    &__filter {
+        display: flex;
+        flex-direction: column;
+        width: rem(280);
+        padding: rem(32) rem(18);
+        border-radius: 4px;
+        background-color: #ffffff;
+        padding-bottom: rem(45);
+
+		@include below($tablet) {
+			width: rem(236);
+			padding: rem(32) rem(16);
+			padding-bottom: rem(32);
+
+            .irs-handle {
+                width: rem(25);
+                height: rem(25);
+                border: rem(8) solid #f4f6f8;
+                top: rem(44);
+            }
+
+            .irs-bar,
+            .irs-line {
+                height: rem(9);
+            }
+
+            .irs-from,
+            .irs-to,
+            .irs-single,
+            .irs-max,
+            .irs-min {
+                font-size: rem(22);
+                line-height: rem(22);
+            }
+		}
+
+        @include below($mobile) {
+            position: absolute;
+            top: 0;
+            z-index: 20;
+            width: 100%;
+            right: 0;
+        }
+
+        &-title {
+            position: relative;
+            margin: 0;
+            margin-bottom: rem(16);
+
+            color: #485058;
+            font-family: $playfair;
+            font-size: rem(20);
+            font-weight: 400;
+            line-height: rem(24);
+            cursor: pointer;
+
+            &::after {
+                position: absolute;
+                content: '';
+                width: rem(16);
+                height: rem(8);
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                background-image: url('/img/arrow-down.svg');
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+        }
+
+        &-more {
+            margin-top: rem(31);
+            color: #babec2;
+            font-family: $helvetica;
+            font-size: rem(16);
+            font-weight: 300;
+            line-height: rem(24);
+            text-decoration: underline;
+        }
+
+        &-item {
+            display: flex;
+            flex-direction: column;
+
+            &:not(.opened) {
+                & > *:not(.climatCatalogue__filter-title) {
+                    display: none;
+                }
+
+                .climatCatalogue__filter-title {
+                    margin-bottom: 0;
+                }
+            }
+
+            &.opened {
+                .climatCatalogue__filter-title {
+                    &::after {
+                        transform: translateY(-50%) rotate(180deg);
+                    }
+                }
+            }
+
+            &:not(:last-of-type) {
+                margin-bottom: rem(32);
+            }
+
+            .checkbox {
+                &:not(:last-of-type) {
+                    margin-bottom: rem(10);
+                }
+            }
+        }
+    }
+}

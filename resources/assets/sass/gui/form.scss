@@ -1,0 +1,75 @@
+@import './gui/input';
+@import 'mixins';
+@import 'variables';
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__input {
+        margin-bottom: 20px;
+
+		@include below($mobile) {
+			width: 100%;
+		}
+
+        &_horiz {
+            width: 32.5%;
+            @media screen and (max-width: rem(1024)) {
+                width: auto;
+                margin-right: 15px;
+            }
+
+            @include below($mobile) {
+    			margin-right: 0;
+    		}
+        }
+    }
+
+    &__button {
+        margin-bottom: 20px;
+        @media screen and (max-width: rem(1024)) {
+            width: auto;
+            margin-right: 15px;
+        }
+
+        @include below($mobile) {
+            margin-right: 0;
+        }
+    }
+    &__agreement {
+        font-size: 12px;
+        width: 100%;
+
+        a {
+            color: #50555a;
+        }
+    }
+
+	&__status {
+		display: none;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+		margin: 0;
+		padding: rem(18) 0;
+		color: $grey_abbey;
+		font-family: $helvetica;
+		font-size: rem(22);
+		font-weight: 300;
+		line-height: rem(32);
+	}
+
+    &_status-send {
+        .form__status {
+            display: flex;
+        }
+
+        .form__button,
+        .popup__button,
+        .main-offer__button {
+            display: none;
+        }
+    }
+}

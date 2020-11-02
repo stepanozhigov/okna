@@ -1,0 +1,332 @@
+.services {
+
+
+    margin-bottom: 80px;
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 48px 0 32px 0;
+    }
+
+    &__card {
+        margin: 0 .625rem 2rem .625rem;
+        width: 23%;
+
+        @media screen and (max-width: rem(1024)) {
+            width: 45%;
+        }
+        @media screen and (max-width: 650px) {
+            width: 95%;
+        }
+    }
+
+    .titles {
+        margin-bottom: rem(56);
+    }
+}
+
+.service-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+
+    &__img {
+        width: 100%;
+    }
+}
+
+.service {
+    position: relative;
+
+    &__texture {
+        &:before {
+            z-index: -1;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 100%;
+            width: 800px;
+            background-image: url(/img/windows/services/texture_squares.png);
+            background-repeat: repeat;
+
+            @media screen and (max-width: rem(1024)){
+                display: none;
+            }
+        }
+    }
+
+    &__titles {
+        align-items: flex-start;
+
+        &.titles {
+            margin-bottom: 0;
+        }
+    }
+    &__title {
+        text-align: start;
+
+        &::after {
+            left: 0;
+            transform: none;
+        }
+    }
+    &__form {
+        width: 78%;
+        padding-top: 40px;
+        padding-bottom: 100px;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+		@include below($mobile) {
+			width: 100%;
+			align-items: center;
+		}
+    }
+    &__agreement {
+        align-self: center;
+        width: 49%;
+        color: #a7aaad;
+        font-family: "Helvetica Neue";
+        font-size: 12px;
+        font-weight: 300;
+
+        a {
+            color: #a7aaad;
+        }
+    }
+    &__button {
+        width: 49%;;
+    }
+    &__input {
+        margin-bottom: 20px;
+        width: 49%;
+    }
+    &__heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        flex-wrap: wrap;
+        position: relative;
+    }
+    @media screen and (max-width: 1240px){
+        &__input, &__button {
+            width: 100%;
+        }
+        &__agreement {
+            width: 100%;
+            margin-top: 20px;
+        }
+    }
+    &__left {
+        width: 57%;
+        padding-top: 70px;
+        padding-bottom: 48px;
+
+        @include below($tablet) {
+            width: 100%;
+            padding-top: 0;
+        }
+    }
+
+    &__intro {
+        text-align: left;
+        margin-bottom: 15px;
+    }
+    &__img {
+        width: 64%;
+        position: absolute;
+        right: -68px;
+        bottom: 0;
+
+        &_measurement {
+            width: 80%;
+            right: -450px;
+            z-index: -1;
+        }
+
+        &_deal {
+            width: rem(533);
+            height: rem(560);
+            right: rem(47);
+            z-index: -1;
+        }
+
+        &_small {
+            width: 37%;
+            top: 50%;
+            transform: translate(0%, -50%);
+            right: -90px;
+        }
+
+        @media screen and (max-width: 1240px){
+            display: none;
+        }
+    }
+
+	&_measure,
+	&_deal {
+        overflow: hidden;
+        padding-bottom: rem(80);
+
+        .service__heading {
+            @extend .b-texture;
+    		@extend .b-texture_square;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+
+        .titles {
+            width: rem(600);
+            margin-bottom: rem(40);
+
+            @include below($mobile) {
+				width: 100%;
+                margin-bottom: rem(32);
+            }
+        }
+
+        .service__title {
+            padding-bottom: 0;
+
+            &::after {
+                display: none;
+            }
+
+            @include below($mobile) {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        .service__overtitle {
+            @include below($mobile) {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        .service__form {
+            width: rem(600);
+            padding: 0;
+            padding-bottom: rem(64);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            @include below($tablet) {
+                padding-bottom: rem(80);
+                width: rem(540);
+            }
+
+            @include below($mobile) {
+                width: 100%;
+            }
+        }
+
+        .service__input {
+            width: rem(380);
+            height: rem(48);
+            margin-bottom: rem(16);
+
+            @include below($tablet) {
+                width: rem(354);
+
+                &:last-of-type {
+                    margin-bottom: rem(32);
+                }
+            }
+
+            @include below($mobile) {
+                width: 100%;
+                height: rem(64);
+            }
+        }
+
+        .service__img {
+            width: rem(630);
+            height: rem(433);
+            right: rem(-50);
+            bottom: rem(-80);
+
+            @include below($tablet) {
+                display: block;
+                width: rem(550);
+                height: rem(378);
+                right: rem(-102);
+            }
+
+            @include below($mobile) {
+                display: none;
+            }
+        }
+
+        .service__button {
+            width: rem(280);
+            margin-bottom: rem(16);
+
+            @include below($tablet) {
+                width: rem(260);
+            }
+
+            @include below($mobile) {
+                width: 100%;
+                margin-bottom: rem(8);
+                height: rem(60);
+            }
+        }
+
+        .service__agreement {
+            width: rem(280);
+            margin-right: auto;
+
+            @include below($tablet) {
+                width: rem(260);
+                line-height: rem(16);
+                margin-top: 0;
+            }
+
+            @include below($mobile) {
+                width: 100%;
+                text-align: center;
+            }
+        }
+	}
+
+    &_deal {
+        .service__img_deal {
+            width: rem(533);
+            height: rem(560);
+            right: rem(47);
+            z-index: -1;
+
+            @include below($tablet) {
+                right: rem(-130);
+            }
+        }
+
+        .service__titles,
+        .service__form {
+            width: rem(380);
+
+            @include below($mobile) {
+                width: 100%;
+            }
+
+        }
+
+        .service__heading  {
+            padding-left: rem(180);
+
+            @include below($tablet) {
+                padding-left: 0;
+            }
+        }
+    }
+}

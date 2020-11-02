@@ -1,0 +1,162 @@
+@import './gui/review';
+
+.reviews {
+    @extend .container;
+    margin-bottom: rem(80);
+
+    .titles {
+        margin-bottom: rem(64);
+    }
+
+
+    &__content {
+        position: relative;
+
+        width: calc(100% + 20px);
+        margin-left: rem(-10);
+        margin-right: rem(-10);
+
+
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    	padding-top: rem(48);
+        padding-bottom: rem(64);
+
+        @include below($mobile) {
+            width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+
+    &:not(.reviews_main) {
+        .reviews__content {
+            @extend .b-texture;
+        }
+    }
+
+    &__buttons {
+        margin-top: 32px;
+        width: 100%;
+
+		.buttons__item {
+			margin-right: 0;
+		}
+
+		.button_gray {
+			margin-right: rem(16);
+		}
+
+		@include below($mobile) {
+			.buttons__item {
+				margin-bottom: 0;
+			}
+
+			.button_gray {
+                margin-right: 0;
+				margin-bottom: rem(16);
+			}
+		}
+    }
+
+    &__item {
+        width: calc(33.3% - 20px);
+        margin: 0 rem(10);
+        margin-top: rem(60);
+        margin-bottom: rem(64);
+
+        @media screen and (max-width: rem(1024)) {
+            width: calc(50% - 20px);
+        }
+        @include below($mobile) {
+            width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+			margin-bottom: rem(64);
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        width: 100%;
+
+        @media screen and (max-width: 800px) {
+            flex-direction: column;
+            align-items: center;
+
+
+        }
+
+        .button {
+            @media screen and (max-width: 800px) {
+                margin: 0;
+
+                &:not(:last-of-type) {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+
+    &__button {
+        margin-right: 15px;
+
+    }
+    &__paginator {
+        flex-basis: 100%;
+        margin-top: rem(-16);
+        margin-bottom: rem(48);
+    }
+
+    @media screen and (max-width: rem(1024)) {
+        justify-content: space-evenly;
+    }
+
+    &_main {
+
+        padding-bottom: rem(96);
+        margin-bottom: 0;
+
+        .titles {
+            margin-bottom: 0;
+
+            @include below($mobile) {
+				padding-bottom: 0;
+                margin-bottom: rem(48);
+
+                .second-title {
+                    margin-bottom: 0;
+                }
+			}
+        }
+
+        .reviews__content {
+            padding: 0;
+            margin-bottom: rem(48);
+
+        }
+
+        .reviews__item {
+            margin-bottom: 0;
+
+            @include below($tablet) {
+                &:nth-of-type(n + 4) {
+                    display: none;
+
+                }
+            }
+
+            @include below($mobile) {
+                width: 97%;
+
+                &:nth-of-type(n + 3) {
+                    display: none;
+
+                }
+            }
+        }
+    }
+}

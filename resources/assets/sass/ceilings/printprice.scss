@@ -1,0 +1,176 @@
+.printprice {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: rem(80);
+
+    @extend .container;
+
+    &__content {
+        position: relative;
+        z-index: 2;
+
+        display: flex;
+        justify-content: space-between;
+        padding: rem(50) rem(108);
+
+        border: rem(1) solid #e3e6e9;
+        border-radius: rem(5);
+        background-color: $white;
+
+        @include below($tablet) {
+            flex-direction: column;
+            padding: rem(50) rem(90);
+        }
+        @include below($mobile) {
+            flex-direction: column;
+            width: calc(100% + 20px);
+            padding: rem(50) rem(10);
+            margin-right: rem(-10);
+            margin-left: rem(-10);
+        }
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        width: rem(430);
+
+        @include below($tablet) {
+            width: 100%;
+
+            &:not(:last-of-type) {
+                margin-bottom: rem(50);
+            }
+        }
+
+        table {
+            border-spacing: rem(4);
+
+            border-collapse: separate;
+
+            tr {
+                &:first-of-type {
+                    height: rem(48);
+                }
+
+                &:nth-of-type(odd) {
+                    th,
+                    td {
+                        background-color: #d0d2d4;
+                    }
+                }
+                &:nth-of-type(even) {
+                    th,
+                    td {
+                        background-color: #f6f6f6;
+                    }
+                }
+
+                th,
+                td {
+                    padding: rem(8) rem(15);
+
+                    font-family: $helvetica;
+                    font-size: rem(16);
+                    font-weight: 300;
+                    color: $grey_abbey;
+                    text-align: left;
+
+                    border-radius: rem(4);
+
+                    &:nth-of-type(2) {
+                        @include below($mobile) {
+                            width: rem(105);
+                        }
+                    }
+                }
+
+                th {
+                    font-weight: 700;
+                }
+            }
+        }
+
+        .printprice__text {
+            &:first-of-type {
+                margin-top: rem(20);
+            }
+        }
+    }
+
+    &__text {
+        margin: 0;
+
+        font-family: $helvetica;
+        font-size: rem(14);
+        font-weight: 300;
+        line-height: 19px;
+        color: $grey_abbey;
+
+        &:not(:last-of-type) {
+            margin-bottom: rem(15);
+        }
+    }
+
+    &__item-title {
+        margin: 0;
+        margin-bottom: rem(15);
+
+        font-family: $playfair;
+        font-size: rem(20);
+        font-weight: 400;
+        color: $grey_abbey;
+
+        @include below($tablet) {
+            text-align: center;
+        }
+    }
+
+    &__printer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: rem(780);
+
+        @include below($tablet) {
+            width: 100%;
+        }
+    }
+
+    &__printer-name {
+        width: 100%;
+        margin: 0;
+        margin-bottom: rem(40);
+
+        font-family: $playfair;
+        font-size: rem(32);
+        font-weight: 400;
+        color: $grey_abbey;
+        text-align: center;
+    }
+
+    &__printer-image {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        margin-bottom: rem(30);
+    }
+
+    &__printer-desc {
+        width: 100%;
+        margin: 0;
+
+        font-family: $helvetica;
+        font-size: rem(16);
+        font-weight: 300;
+        color: $grey_abbey;
+    }
+
+	.page__wrapper {
+        width: 100%;
+        margin-bottom: rem(80);
+		padding-bottom: rem(60);
+		@extend .b-texture;
+    }
+}

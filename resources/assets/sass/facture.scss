@@ -1,0 +1,211 @@
+@import 'mixins';
+@import 'variables';
+.facture {
+    position: relative;
+    display: flex;
+    padding-top: rem(76);
+    padding-bottom: rem(222);
+    background-color: #f0f5f4;
+    overflow: hidden;
+
+    @include below($tablet) {
+        padding-bottom: rem(215);
+    }
+
+    @include below($mobile) {
+        padding-top: rem(80);
+        padding-bottom: rem(64);
+    }
+
+    &__content {
+        @extend .container;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        @include below($tablet) {
+            padding-right: rem(290);
+        }
+
+        @include below($mobile) {
+            padding-right: 0;
+        }
+    }
+
+    &__title {
+        position: relative;
+        padding-bottom: rem(21);
+        margin: 0;
+        margin-bottom: rem(40);
+        color: #485058;
+        font-family: $playfair;
+        font-size: rem(32);
+        font-weight: 400;
+        line-height: rem(38);
+
+        @include below($tablet) {
+            font-size: rem(26);
+            line-height: rem(31);
+        }
+
+        @include below($mobile) {
+            width: 100%;
+            font-size: rem(22);
+            line-height: rem(26);
+            text-align: center;
+        }
+
+        &::after {
+            position: absolute;
+            content: '';
+            left: 0;
+            bottom: 0;
+            width: rem(160);
+            height: rem(1);
+            background-color: #babec2;
+
+            @include below($tablet) {
+                width: rem(80);
+            }
+
+            @include below($mobile) {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    }
+
+    &__desc {
+        margin: 0;
+        margin-bottom: rem(32);
+        color: #485058;
+        font-family: $helvetica;
+        font-size: rem(16);
+        font-weight: 300;
+        line-height: rem(24);
+
+        @include below($tablet) {
+            font-size: rem(18);
+        }
+
+        @include below($mobile) {
+            text-align: center;
+        }
+
+        a {
+            color: #485058;
+        }
+    }
+
+    &__list {
+        display: flex;
+        align-items: center;
+        margin-bottom: rem(62);
+
+        @include below($mobile) {
+            margin-bottom: rem(48);
+        }
+
+        @include below($mobile) {
+            margin-bottom: rem(22);
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+    }
+
+    &__item {
+        position: relative;
+        display: flex;
+        padding: 0;
+        border: none;
+        outline: none;
+        box-shadow: 0 8px 8px rgba(0, 0, 0, 0.12), 0 0 8px rgba(0, 0, 0, 0.08);
+        border-radius: 50%;
+        cursor: pointer;
+        transition: border .3s;
+
+        img {
+            position: relative;
+            z-index: 2;
+            width: rem(120);
+            height: rem(120);
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        &.active {
+            &::after {
+                position: absolute;
+                content: '';
+                top: rem(-2);
+                left: rem(-2);
+                width: rem(124);
+                height: rem(124);
+                background-color: $red_crismon;
+                border-radius: 50%;
+            }
+        }
+
+        &:not(:last-of-type) {
+            margin-right: rem(45);
+
+            @include below($mobile) {
+                margin-right: rem(0);
+            }
+        }
+
+        @include below($tablet) {
+            &:nth-of-type(n + 4) {
+                display: none;
+            }
+        }
+
+        @include below($mobile) {
+            &:nth-of-type(n + 4) {
+                display: block;
+            }
+
+            margin-bottom: rem(26);
+        }
+    }
+
+    &__img {
+        display: none;
+        position: absolute;
+        right: rem(-170);
+        top: rem(76);
+        width: rem(563);
+        height: rem(560);
+
+        &.active {
+            display: block;
+
+            @include below($mobile) {
+                display: none;
+            }
+        }
+
+        @include below($tablet) {
+            right: rem(-295);
+        }
+    }
+
+    &__price {
+        margin: 0;
+        color: $red_crismon;
+        font-family: $helvetica;
+        font-size: rem(48);
+        line-height: rem(32);
+
+        @include below($tablet) {
+            font-size: rem(36);
+        }
+
+        @include below($mobile) {
+            font-size: rem(32);
+            line-height: rem(38);
+            text-align: center;
+        }
+    }
+}

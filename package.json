@@ -1,0 +1,42 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "npm run development",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "npm run development -- --watch",
+    "watch-poll": "npm run watch -- --watch-poll",
+    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "prod": "npm run production",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  },
+  "devDependencies": {
+    "axios": "^0.18",
+    "body-scroll-lock": "^2.6.1",
+    "bootstrap": "^4.0.0",
+    "browser-sync": "^2.26.12",
+    "browser-sync-webpack-plugin": "^2.0.1",
+    "cross-env": "^5.2.1",
+    "css-mqpacker": "^7.0.0",
+    "inputmask": "^4.0.4",
+    "ion-rangeslider": "^2.3.0",
+    "jquery": "^3.2",
+    "laravel-mix": "^2.0",
+    "lazysizes": "^5.2.0",
+    "lodash": "^4.17.4",
+    "popper.js": "^1.12",
+    "rateyo": "^2.3.5",
+    "sort-css-media-queries": "^1.5.0",
+    "tooltipster": "^4.2.6",
+    "vue": "^2.5.7"
+  },
+  "dependencies": {
+    "inputmask-core": "^2.2.0",
+    "vue-cookie": "^1.1.4",
+    "vue-inputmask": "^0.2.1",
+    "vue-masked-input": "^0.5.2",
+    "vue-slider-component": "^3.1.1",
+    "vue2-touch-events": "^1.1.2",
+    "vuelidate": "^0.7.5",
+    "vuex": "^3.5.1"
+  }
+}

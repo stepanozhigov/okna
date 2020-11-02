@@ -1,0 +1,17 @@
+.paginator {
+    display: flex;
+    justify-content: center;
+    
+    &__item {
+        color: $grey_chateau;
+        font-family: "Helvetica Neue";
+        font-size: 19px;
+        font-weight: 500;
+        margin-right: 15px;
+        text-decoration: none;
+
+        &_active {
+            color: $red_crismon
+        }
+    }
+}

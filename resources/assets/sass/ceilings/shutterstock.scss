@@ -1,0 +1,130 @@
+.shutterstock {
+	@extend .container;
+
+
+    &__image {
+        position: relative;
+
+        padding-bottom: rem(30);
+        margin-bottom: rem(55);
+
+        @include below($mobile) {
+            padding-bottom: rem(25);
+            margin-bottom: rem(40);
+        }
+
+        &::after {
+            content: '';
+
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+
+            width: rem(160);
+            height: rem(1);
+            margin: 0 auto;
+
+            background-color: $grey_chateau;
+        }
+
+        img {
+            width: rem(350);
+            height: rem(55);
+
+			@include below($mobile) {
+	            width: rem(235);
+	            height: rem(35);
+	        }
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__text {
+        width: 60%;
+        margin-bottom: rem(60);
+
+        text-align: center;
+
+        @extend .text;
+        @include below($tablet-small) {
+            font-size: rem(18);
+        }
+        @include below($mobile) {
+            width: 100%;
+            max-height: rem(83);
+            margin-bottom: rem(30);
+            overflow: hidden;
+
+            font-size: rem(18);
+            text-align: left;
+
+			&.opened {
+				max-height: none;
+			}
+        }
+    }
+
+    &__arrow {
+        display: none;
+        width: rem(20);
+        height: rem(10);
+        margin: 0 auto;
+        overflow: visible;
+
+        white-space: nowrap;
+        text-indent: rem(-9999);
+
+        @extend .arrow;
+        @extend .arrow_vertical-big;
+
+        @include below($mobile) {
+            display: block;
+            margin-bottom: rem(50);
+        }
+    }
+
+    &__text-bold {
+        font-weight: 500;
+        color: $red_crismon;
+        text-align: center;
+
+        @extend .text;
+    }
+
+    &__link {
+        position: relative;
+        z-index: 2;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: rem(280);
+        height: rem(50);
+        padding: rem(10) rem(15);
+        margin: 0 auto;
+
+        font-family: $helvetica;
+        font-size: rem(20);
+        font-weight: 300;
+        color: $white;
+        text-decoration: none;
+
+        border-radius: rem(5);
+
+        @extend .button;
+        @extend .button_gray;
+        @include below($tablet-small) {
+            width: rem(320);
+            height: rem(60);
+        }
+        @include below($mobile) {
+            width: 100%;
+        }
+    }
+}

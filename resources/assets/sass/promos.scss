@@ -1,0 +1,131 @@
+.promos {
+    padding-bottom: rem(80);
+
+    .titles {
+        margin-bottom: rem(48)
+    }
+
+
+    &__content {
+        @extend .b-texture;
+        @extend .b-texture_square;
+        width: calc(100% + 20px);
+        margin-left: rem(-10);
+        margin-right: rem(-10);
+        padding: 48px 0 44px 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        @include below($mobile) {
+            width: 100%;
+            margin-right: 0;
+            margin-left: 0
+        }
+    }
+
+
+    &__item {
+        width: calc(33.3% - 20px);
+        margin: 0 rem(10);
+        margin-bottom: rem(32);
+
+        @include below($tablet) {
+            width: calc(50% - 20px);
+        }
+        @include below($mobile) {
+            width: 100%;
+        }
+    }
+}
+
+.promo {
+    text-decoration: none;
+    padding: 0;
+
+    &__inner {
+        padding: 30px 35px;
+    }
+    &__title {
+        text-align: left;
+        margin: 0;
+    }
+
+	&__subtitle {
+		@extend .third-title;
+        margin: 0;
+        margin-bottom: rem(8);
+	}
+
+    &__text-wrap {
+        &:first-of-type {
+            margin-top: rem(12);
+        }
+
+        &:not(:last-of-type) {
+            margin-bottom: rem(12);
+        }
+    }
+
+    &__text {
+        margin: 0;
+
+
+    }
+
+    &__line {
+        margin: 20px 0 30px 0;
+    }
+
+    &__img {
+        width: 100%;
+        border-radius: 5px;
+        margin: 0;
+    }
+
+    @include below($mobile) {
+        width: 100%;
+
+        .promo__img,
+        .promo__text,
+        .promo__line {
+            display: none;
+        }
+
+        .promo__inner {
+            position: relative;
+            padding: rem(24) rem(20);
+            padding-right: rem(40);
+
+            &::after {
+                position: absolute;
+                content: '';
+                top: rem(47);
+                right: rem(15);
+                width: rem(18);
+                height: rem(9);
+                background-image: url('/img/arrow-down.svg');
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+        }
+
+        .promo__title {
+            font-size: 20px;
+        }
+
+        &.opened {
+            .promo__img,
+            .promo__text,
+            .promo__line {
+                display: block;
+            }
+
+            .promo__inner {
+                &::after {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+}

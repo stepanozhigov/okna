@@ -1,0 +1,163 @@
+
+.catalogueDetail {
+    padding-bottom: rem(80);
+
+    .titles {
+        margin-bottom: rem(48);
+    }
+
+    &__main {
+        @extend .b-texture;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: rem(64) 0;
+        margin-bottom: rem(84);
+        overflow: hidden;
+
+    }
+
+    &__title {
+        @extend .second-title;
+        margin-bottom: rem(45);
+        @extend .container;
+    }
+
+    &__price {
+        @extend .text;
+        @extend .container;
+        margin: 0;
+        margin-bottom: rem(20);
+
+        font-size: rem(36);
+        color: $red_crismon;
+        text-align: center;
+
+        @include below($tablet-small) {
+            font-size: rem(32);
+        }
+        @include below($mobile) {
+            margin-bottom: rem(15);
+
+            font-size: rem(24);
+        }
+    }
+
+    &__install {
+        @extend .text;
+        @extend .container;
+        margin: 0;
+        margin-bottom: rem(40);
+        font-size: rem(22);
+
+        text-align: center;
+
+        @include below($tablet-small) {
+            font-size: rem(22);
+        }
+        @include below($mobile) {
+            font-size: rem(20);
+        }
+    }
+
+    &__buttons {
+        display: flex;
+
+        @include below($tablet-small) {
+			flex-direction: column;
+        }
+    }
+
+    &__desc {
+        width: rem(780);
+        margin: 0 auto;
+        margin-bottom: rem(64);
+
+        @include below($tablet) {
+            width: calc(100% - 40px);
+            margin: 0 rem(20);
+            margin-bottom: rem(64);
+        }
+
+        @include below($mobile) {
+            width: calc(100% - 32px);
+            margin: 0 rem(16);
+            margin-bottom: rem(64);
+        }
+
+        @include below($mobile-small) {
+            width: calc(100% - 16px);
+            margin: 0 rem(8);
+            margin-bottom: rem(60);
+        }
+
+        p {
+            @extend .text;
+
+            &:not(:last-of-type) {
+                margin-bottom: rem(16);
+            }
+        }
+    }
+
+    &__filter {
+        width: rem(800);
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+
+        @include below($tablet) {
+            width: calc(100% - 40px);
+            margin: 0 rem(20);
+        }
+
+        @include below($mobile) {
+            width: calc(100% - 32px);
+            margin: 0 rem(16);
+        }
+
+        @include below($mobile-small) {
+            width: calc(100% - 16px);
+            margin: 0 rem(8);
+        }
+
+        p {
+            @extend .third-title;
+            width: 100%;
+            margin-bottom: rem(38);
+            text-align: center;
+        }
+    }
+
+    &__types {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: rem(-20);
+    }
+
+    &__tag {
+        margin: 0 rem(10);
+        margin-bottom: rem(20);
+    }
+
+	&_surfaces {
+		.catalogueDetail__filter {
+			margin-bottom: rem(32);
+		}
+
+		.catalogueDetail__price {
+			font-size: rem(32);
+			line-height: rem(32);
+			font-weight: 300;
+			margin: 0;
+		}
+
+		.catalogueDetail__main {
+			padding: rem(48) 0;
+			padding-bottom: rem(58);
+
+		}
+	}
+}

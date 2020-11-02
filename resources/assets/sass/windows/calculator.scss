@@ -1,0 +1,1026 @@
+@import 'mixins';
+@import 'variables';
+
+.calculator {
+    position: relative;
+    padding-bottom: rem(65);
+    overflow: hidden;
+    margin-bottom: rem(96);
+
+    @extend .b-texture;
+    @extend .b-texture_square;
+
+    &__inner {
+        position: relative;
+        z-index: 2;
+        @extend .container;
+    }
+
+    &__types {
+        display: flex;
+        position: relative;
+        bottom: rem(-1);
+        z-index: 2;
+        transition: left .3s;
+
+        @include below($mobile) {
+            left: calc(50% - 67.5px);
+        }
+    }
+
+    &__type {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        width: 25%;
+        padding: 0 rem(25);
+        padding-top: rem(24);
+        padding-bottom: rem(20);
+        border-radius: rem(5) rem(5) 0 0;
+        border: rem(1) solid transparent;
+        border-bottom: none;
+        cursor: pointer;
+
+        @include below($tablet) {
+            padding: 0 rem(15);
+            padding-top: rem(24);
+            padding-bottom: rem(15);
+        }
+
+        @include below($mobile) {
+            width: auto;
+            flex-shrink: 0;
+
+            &:not(.active) {
+                opacity: .6;
+            }
+        }
+
+        &-image {
+            margin-bottom: rem(15);
+
+            @include below($tablet) {
+                margin-bottom: rem(8);
+            }
+        }
+
+        &-input {
+            display: none;
+        }
+
+        &-name {
+            margin: 0;
+            color: #50555a;
+            font-family: $futura;
+            font-size: rem(16);
+            font-weight: 300;
+            line-height: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            hyphens: none;
+
+            @include below($tablet) {
+                font-size: rem(12);
+            }
+        }
+
+
+        &.active {
+            background-color: $white;
+            border: rem(1) solid #d0d2d4;
+            border-bottom: none;
+        }
+
+        &:first-of-type {
+            &.active {
+                &::before {
+                    position: absolute;
+                    content: '';
+
+                    @include below($mobile) {
+                        display: none;
+                    }
+                }
+
+                &::before {
+                    left: rem(-1);
+                    bottom: rem(-3);
+                    width: rem(5);
+                    height: rem(5);
+                    background-color: $white;
+                    border-left: rem(1) solid #d0d2d4;
+                }
+            }
+        }
+        &:last-of-type {
+            &.active {
+                &::after {
+                    position: absolute;
+                    content: '';
+
+                    @include below($mobile) {
+                        display: none;
+                    }
+                }
+                &::after {
+                    right: rem(-1);
+                    bottom: rem(-3);
+                    width: rem(5);
+                    height: rem(5);
+                    background-color: $white;
+                    border-right: rem(1) solid #d0d2d4;
+                }
+            }
+        }
+    }
+
+    &__content {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        background-color: $white;
+        padding: rem(55);
+        border: rem(1) solid #d0d2d4;
+        border-radius: rem(5);
+
+        @include below($tablet) {
+            padding: rem(55) rem(26);
+            padding-bottom: rem(356);
+        }
+
+        @include below($mobile) {
+            flex-direction: column;
+            align-items: center;
+            padding: rem(35) rem(16);
+            padding-bottom: rem(65);
+        }
+    }
+
+    &__main {
+        display: none;
+        position: relative;
+        padding-right: rem(80);
+        padding-bottom: rem(80);
+        margin-right: rem(80);
+
+        &.active {
+            display: block;
+        }
+
+        @include below($tablet) {
+            padding-right: rem(60);
+            padding-bottom: rem(60);
+            margin-right: rem(40);
+        }
+
+        @include below($mobile) {
+            width: auto;
+            padding-right: rem(30);
+            padding-bottom: rem(30);
+            margin-right: 0;
+            margin-bottom: rem(31);
+        }
+
+        &::before,
+        &::after {
+            position: absolute;
+            content: '';
+            background-color: #babec2;
+        }
+
+        &::before {
+            width: calc(100% - 80px);
+            height: rem(1);
+            left: 0;
+            bottom: rem(24);
+
+            @include below($tablet) {
+                width: calc(100% - 60px);
+            }
+
+            @include below($mobile) {
+                bottom: rem(10);
+                width: calc(100% - 30px);
+            }
+        }
+
+        &::after {
+            height: calc(100% - 80px);
+            width: rem(1);
+            right: rem(24);
+            top: 0;
+
+            @include below($tablet) {
+                height: calc(100% - 60px);
+            }
+
+            @include below($mobile) {
+                right: rem(10);
+                height: calc(100% - 30px);
+            }
+        }
+
+        .calculator__input {
+            @include below($mobile) {
+                display: none;
+            }
+        }
+
+        &_tricuspid {
+            .calculator__window-left,
+            .calculator__window-right {
+                position: absolute;
+            }
+
+            .calculator__window-left {
+                top: rem(21);
+                left: rem(24);
+                transform-origin: 0% 50% 0px;
+                transform: perspective(800px) rotateY(-40deg);
+
+                animation: openReverce 2s ease-in-out;
+                animation-delay: 1s;
+
+                @include below($tablet) {
+                    top: 15px;
+                    left: 17px;
+                    height: 175px;
+                }
+
+                @include below($mobile) {
+                    top: rem(7);
+                    left: rem(8);
+                    width: rem(62);
+                    height: rem(100);
+                }
+            }
+
+            .calculator__window-right {
+                top: rem(21);
+                right: rem(101);
+
+                animation: openright 2s ease-in-out;
+                animation-delay: 1s;
+
+                @include below($tablet) {
+                    top: 15px;
+                    height: 175px;
+                    right: 75px;
+                }
+
+                @include below($mobile) {
+                    top: rem(7);
+                    right: rem(38);
+                    width: rem(62);
+                    height: rem(100);
+                }
+            }
+        }
+        &_bivalve {
+            .calculator__window-left {
+                position: absolute;
+            }
+
+            .calculator__window-left {
+                top: rem(21);
+                left: rem(24);
+
+                animation: open 2s ease-in-out;
+
+                @include below($tablet) {
+                    top: rem(19);
+                    left: rem(22);
+                    width: rem(156);
+                    height: rem(245);
+                }
+
+                @include below($mobile) {
+                    width: rem(89);
+                    left: rem(11);
+                    top: rem(10);
+                    height: rem(136);
+                }
+            }
+        }
+        &_single {
+            .calculator__window-left {
+                position: absolute;
+            }
+
+            .calculator__window-left {
+                top: rem(21);
+                left: rem(24);
+
+                animation: open 2s ease-in-out;
+
+                @include below($tablet) {
+                    left: rem(22);
+                }
+
+                @include below($mobile) {
+                    width: rem(160);
+                    left: rem(21);
+                    top: rem(18);
+                    height: rem(248);
+                }
+            }
+        }
+        &_block-bivalve {
+            .calculator__image {
+                box-shadow: none;
+                position: relative;
+                z-index: 3;
+            }
+
+            .calculator__window-left {
+                position: absolute;
+                z-index: 4;
+            }
+
+            .calculator__window-left {
+                top: rem(23);
+                left: rem(23);
+
+                animation: open 2s ease-in-out;
+
+                @include below($tablet) {
+                    top: rem(15);
+                    left: rem(12);
+                    width: rem(111);
+                    height: rem(175);
+                }
+
+                @include below($mobile) {
+                    top: rem(8);
+                    left: rem(5);
+                    width: rem(62);
+                    height: rem(98);
+                }
+            }
+
+            .calculator__shadow {
+                &_horizontal {
+                    position: absolute;
+                    height: rem(321);
+                    top: 0;
+                    width: rem(550);
+
+                    @include below($tablet) {
+                        width: rem(360);
+                        height: rem(210);
+                    }
+                    @include below($mobile) {
+                        width: rem(200);
+                        height: rem(117);
+                    }
+                }
+
+                &_vertical {
+                    position: absolute;
+                    height: rem(180);
+                    bottom: rem(84);
+                    right: rem(80);
+                    width: rem(190);
+
+                    @include below($tablet) {
+                        bottom: rem(64);
+                        right: rem(60);
+                        width: rem(125);
+                    }
+
+                    @include below($mobile) {
+                        bottom: rem(34);
+                        right: rem(30);
+                        width: rem(69);
+                        height: rem(97);
+                    }
+                }
+            }
+        }
+        &_block-single {
+            .calculator__image {
+                box-shadow: none;
+                position: relative;
+                z-index: 3;
+            }
+
+            .calculator__window-left {
+                position: absolute;
+                z-index: 4;
+            }
+
+            .calculator__window-left {
+                top: rem(23);
+                left: rem(23);
+
+                animation: open 2s ease-in-out;
+
+                @include below($tablet) {
+                    top: rem(21);
+                    left: rem(20);
+                    width: rem(157);
+                    height: rem(258);
+                }
+
+                @include below($mobile) {
+                    top: rem(11);
+                    left: rem(10);
+                    width: rem(89);
+                    height: rem(144);
+                }
+            }
+
+            .calculator__shadow {
+                &_horizontal {
+                    position: absolute;
+                    height: rem(321);
+                    top: 0;
+                    width: rem(380);
+
+                    @include below($tablet) {
+                        width: rem(360);
+                        height: rem(304);
+                    }
+                    @include below($mobile) {
+                        width: rem(200);
+                        height: rem(169);
+                    }
+                }
+
+                &_vertical {
+                    position: absolute;
+                    height: rem(180);
+                    bottom: rem(84);
+                    right: rem(80);
+                    width: rem(190);
+
+                    @include below($tablet) {
+                        bottom: rem(64);
+                        right: rem(60);
+                        width: rem(181);
+                    }
+
+                    @include below($mobile) {
+                        bottom: rem(34);
+                        right: rem(30);
+                        width: rem(100);
+                        height: rem(97);
+                    }
+                }
+            }
+        }
+
+        &_loggia-tricuspid {
+            position: relative;
+
+            .calculator__window-left {
+                position: absolute;
+                top: rem(35);
+                left: rem(166);
+                height: rem(225);
+                width: rem(110);
+
+                animation: open 2s ease-in-out;
+
+                @include below($tablet) {
+                    top: rem(28);
+                    left: rem(136);
+                    width: rem(90);
+                    height: rem(182);
+                }
+
+				@include below($mobile) {
+                    top: rem(16);
+                    left: rem(76);
+                    width: rem(48);
+                    height: rem(100);
+                }
+            }
+        }
+
+        &_loggia-four-leaved {
+            position: relative;
+
+            .calculator__window-left {
+                position: absolute;
+                top: rem(35);
+                left: rem(166);
+                height: rem(225);
+                width: rem(110);
+
+                animation: open 2s ease-in-out;
+
+                @include below($tablet) {
+                    top: rem(23);
+                    left: rem(110);
+                    width: rem(70);
+                    height: rem(146);
+                }
+
+
+				@include below($mobile) {
+                    top: rem(14);
+                    left: rem(61);
+                    width: rem(38);
+                    height: rem(79);
+                }
+            }
+        }
+        &_balcon-tricuspid {
+            position: relative;
+
+            .calculator__window-left {
+                position: absolute;
+                top: rem(35);
+                left: rem(166);
+                height: rem(225);
+                width: rem(110);
+
+                animation: open 2s ease-in-out;
+
+                @include below($tablet) {
+                    top: rem(28);
+                    left: rem(136);
+                    width: rem(90);
+                    height: rem(182);
+                }
+
+                @include below($mobile) {
+                    top: rem(16);
+                    left: rem(76);
+                    width: rem(48);
+                    height: rem(100);
+                }
+            }
+        }
+
+        &_balcon-four-leaved {
+            position: relative;
+
+            .calculator__window-left {
+                position: absolute;
+                top: rem(35);
+                left: rem(166);
+                height: rem(225);
+                width: rem(110);
+
+                animation: open 2s ease-in-out;
+
+                @include below($tablet) {
+                    top: rem(23);
+                    left: rem(110);
+                    width: rem(70);
+                    height: rem(146);
+                }
+
+                @include below($mobile) {
+                    top: rem(13);
+                    left: rem(61);
+                    width: rem(39);
+                    height: rem(80);
+                }
+            }
+        }
+    }
+
+    &__shadow {
+        box-shadow: 0 0 32px rgba(0, 0, 0, 0.16), 0 0 12px rgba(0, 0, 0, 0.12);
+    }
+
+    &__width,
+    &__height {
+        position: absolute;
+        width: rem(112);
+        height: rem(48);
+        display: flex;
+        justify-content: center;
+        z-index: 2;
+
+
+        @include below($mobile) {
+            width: rem(75);
+            height: rem(20);
+            background-color: $white;
+        }
+    }
+
+    &__width {
+        left: calc(50% - 40px);
+        transform: translateX(-50%);
+        bottom: 0;
+
+        @include below($mobile) {
+            left: calc(50% - 15px);
+            bottom: 0;
+        }
+    }
+
+    &__height {
+        transform: rotate(-90deg);
+        right: rem(-32);
+        top: calc(50% - 56px);
+
+        @include below($mobile) {
+            top: calc(50% - 15px);
+            right: rem(-27);
+        }
+    }
+
+    &__input {
+        position: relative;
+        @extend .input;
+        width: 100%;
+        color: #808890;
+        font-family: $helvetica;
+        font-size: rem(18);
+        font-weight: 300;
+
+        &-unit {
+            position: absolute;
+            top: 50%;
+            right: rem(10);
+            width: rem(30);
+            height: rem(20);
+            color: #808890;
+            font-family: $helvetica;
+            font-size: rem(18);
+            font-weight: 300;
+            transform: translateY(-50%);
+            background-color: $white;
+
+            @include below($mobile) {
+                height: auto;
+                width: auto;
+                font-size: rem(14);
+                background-color: transparent;
+            }
+        }
+
+        &-val {
+            display: none;
+
+            @include below($mobile) {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                padding-right: rem(28);
+                padding-left: rem(5);
+                color: #808890;
+                font-family: $helvetica;
+                font-size: rem(14);
+                font-weight: 300;
+            }
+        }
+    }
+
+    &__image {
+        box-shadow: 0 0 32px rgba(0, 0, 0, 0.16), 0 0 12px rgba(0, 0, 0, 0.12);
+
+        @include below($tablet) {
+            max-width: rem(360);
+        }
+
+        @include below($mobile) {
+            width: rem(200);
+            max-width: none;
+            box-shadow: 0 0 32px rgba(0, 0, 0, 0.12), 0 0 12px rgba(0, 0, 0, 0.08);
+        }
+    }
+
+
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: rem(280);
+
+        @include below($tablet) {
+            width: rem(200);
+        }
+
+        @include below($mobile) {
+            width: 100%;
+        }
+    }
+
+    &__title {
+        margin: 0;
+        margin-bottom: rem(8);
+        color: #485058;
+        font-family: $playfair;
+        font-size: rem(20);
+        font-weight: 400;
+
+        @include below($mobile) {
+            font-size: rem(18);
+			margin-bottom: rem(16);
+        }
+    }
+
+    &__text {
+        margin: 0;
+        margin-bottom: rem(32);
+        color: #485058;
+        font-family: $helvetica;
+        font-size: rem(12);
+        font-weight: 300;
+        line-height: 20px;
+
+        @include below($tablet) {
+            font-size: rem(14);
+			margin-bottom: rem(16);
+        }
+
+        &_large {
+            font-size: rem(16);
+        }
+    }
+
+    &__service {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: rem(70);
+
+        .checkbox {
+            &:not(:last-of-type) {
+                margin-bottom: rem(8);
+            }
+        }
+    }
+
+    &__summ {
+        margin: 0;
+        margin-bottom: rem(46);
+        color: $red_crismon;
+        font-family: $helvetica;
+        font-size: rem(48);
+
+        @include below($mobile) {
+            margin-bottom: rem(32);
+        }
+    }
+
+    &__button {
+        @extend .button;
+
+        @include below($mobile) {
+            width: 100%;
+        }
+    }
+
+    &__price {
+        @include below($tablet) {
+            position: absolute;
+            left: 50%;
+            bottom: rem(65);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: rem(420);
+            transform: translateX(-50%);
+
+            .calculator__title {
+                width: 100%;
+                text-align: center;
+
+                @include below($mobile) {
+                    text-align: left;
+                }
+            }
+            .calculator__text {
+                text-align: center;
+
+                @include below($mobile) {
+                    text-align: left;
+                }
+            }
+        }
+
+        @include below($mobile) {
+            position: static;
+            transform: none;
+            width: 100%;
+        }
+    }
+
+    &__params {
+        @include below($mobile) {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: rem(32);
+        }
+    }
+
+    &__size {
+        display: none;
+        justify-content: space-between;
+        align-items: baseline;
+
+        &:not(:last-of-type) {
+            margin-bottom: rem(16);
+        }
+
+        @include below($mobile) {
+            display: flex;
+        }
+
+        &-name {
+            margin: 0;
+            margin-bottom: rem(31);
+            color: #485058;
+            font-family: $helvetica;
+            font-size: rem(16);
+            font-weight: 300;
+            line-height: 20px;
+
+			@include below($mobile) {
+	            margin-bottom: 0;
+	        }
+        }
+
+        .calculator__width,
+        .calculator__height {
+            position: relative;
+            transform: none;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            height: auto;
+            width: rem(140);
+
+            .calculator__input-unit {
+                background-color: $white;
+                height: rem(20);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+
+    &__call {
+        color: #485058;
+        font-family: $helvetica;
+        font-size: rem(22);
+    }
+
+    &__finishing {
+        margin-bottom: rem(61);
+
+        .calculator__text {
+            margin-bottom: rem(10);
+        }
+
+
+    }
+
+    &_balcony {
+        .calculator__type {
+            width: 25%;
+
+            @include below($mobile) {
+                width: auto;
+            }
+        }
+
+        .calculator__service {
+            margin-bottom: rem(36);
+        }
+
+        .calculator__image {
+            box-shadow: none;
+        }
+
+        .calculator__main {
+            &::before {
+                width: calc(100% - 250px);
+                left: rem(85);
+
+                @include below($tablet) {
+                    width: calc(100% - 160px);
+                    left: 50px;
+                }
+
+                @include below($mobile) {
+                    width: calc(70% - 30px);
+                    left: 15%;
+                }
+            }
+            &::after {
+                height: rem(230);
+                top: rem(55);
+
+                @include below($tablet) {
+                    height: 38%;
+                    top: 10%;
+                }
+
+                @include below($mobile) {
+                    height: 40%;
+                }
+            }
+        }
+
+        .calculator__width {
+            @include below($tablet) {
+                left: calc(50% - 30px);
+            }
+            @include below($mobile) {
+                left: calc(50% - 7.5px);
+            }
+        }
+
+        .calculator__height {
+            top: 25%;
+
+            @include below($tablet) {
+                top: 22.5%;
+            }
+
+            @include below($mobile) {
+                top: 26.5%;
+            }
+        }
+
+        .calculator__info {
+            .calculator__width {
+                @include below($mobile) {
+                    left: 0;
+                }
+            }
+
+            .calculator__height {
+                @include below($mobile) {
+                    top: 0;
+                }
+            }
+        }
+    }
+
+    .titles {
+        position: relative;
+        z-index: 2;
+        margin-bottom: rem(48);
+    }
+}
+
+
+
+
+
+
+
+@keyframes open {
+     from {
+         transform-origin: 0% 50% 0px;
+         transform: perspective(800px) rotateY(0deg);
+     }
+
+     50% {
+         transform-origin: 0% 50% 0px;
+         transform: perspective(800px) rotateY(-40deg);
+     }
+
+     to {
+         transform-origin: 0% 50% 0px;
+         transform: perspective(800px) rotateY(0deg);
+     }
+}
+@keyframes openReverce {
+     from {
+         transform-origin: 0% 50% 0px;
+         transform: perspective(800px) rotateY(-40deg);
+     }
+
+     50% {
+         transform-origin: 0% 50% 0px;
+         transform: perspective(800px) rotateY(0deg);
+     }
+
+     to {
+         transform-origin: 0% 50% 0px;
+         transform: perspective(800px) rotateY(-40deg);
+     }
+}
+
+@keyframes openright {
+     from {
+         transform-origin: 100% 50% 0px;
+         transform: perspective(800px) rotateY(0deg);
+     }
+
+     50% {
+         transform-origin: 100% 50% 0px;
+         transform: perspective(800px) rotateY(40deg);
+     }
+
+     to {
+         transform-origin: 100% 50% 0px;
+         transform: perspective(800px) rotateY(0deg);
+     }
+}

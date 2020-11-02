@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="16px" viewBox="0 0 18 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54 (76480) - https://sketchapp.com -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Components-/-Mixin-/-Icons-basic-/-Cart" transform="translate(-1.000000, 0.000000)" stroke="#808890" stroke-width="1.01">
+            <g id="Group" transform="translate(1.504700, 0.505000)">
+                <polyline id="Stroke-1" stroke-linecap="round" stroke-linejoin="round" points="6.4745 9.3628 16.0015 9.3628 17.0005 3.1008 4.9735 2.2868"></polyline>
+                <path d="M16.8099,13.2299 L16.1519,13.2299" id="Stroke-3" stroke-linecap="round"></path>
+                <path d="M5.5326,13.227 C4.6896,13.215 4.0096,12.551 4.0096,11.73 C4.0096,11.159 4.3456,10.636 4.8746,10.384 L5.5636,10.056 C5.9906,9.853 6.2226,9.396 6.1306,8.944 L4.4576,0.819 C4.3596,0.342 3.9286,-5.24025268e-13 3.4286,-5.24025268e-13" id="Stroke-5" stroke-linecap="round"></path>
+                <path d="M13.5956,13.2299 L8.0886,13.2299" id="Stroke-7" stroke-linecap="round"></path>
+                <path d="M1.889,0.0004 L6.18394225e-14,0.0004" id="Stroke-9" stroke-linecap="round"></path>
+                <path d="M8.1742,13.6772 C8.1742,14.4072 7.5632,15.0002 6.8102,15.0002 C6.0572,15.0002 5.4462,14.4072 5.4462,13.6772 C5.4462,12.9472 6.0572,12.3542 6.8102,12.3542 C7.5632,12.3542 8.1742,12.9472 8.1742,13.6772 Z" id="Stroke-11"></path>
+                <path d="M16.2381,13.6772 C16.2381,14.4072 15.6271,15.0002 14.8741,15.0002 C14.1201,15.0002 13.5101,14.4072 13.5101,13.6772 C13.5101,12.9472 14.1201,12.3542 14.8741,12.3542 C15.6271,12.3542 16.2381,12.9472 16.2381,13.6772 Z" id="Stroke-13"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,143 @@
+.photoprintBlock {
+    @extend .container;
+
+    &__content {
+        display: flex;
+        padding-top: rem(55);
+        padding-bottom: rem(50);
+
+        border-radius: 5px;
+        background-image: radial-gradient(rem(677) rem(677) at 74.58% 509.67%, #f0f0f0 0%, #c8c8c8 100%);
+
+        @include below($tablet-small) {
+            padding: 0 rem(40);
+            padding-top: rem(75);
+            padding-bottom: rem(70);
+
+            background-image: radial-gradient(rem(696) rem(696) at 65.98% 656.4%, #f0f0f0 0%, #c8c8c8 100%);
+        }
+        @include below($mobile) {
+            padding: 0 rem(10);
+            padding-top: rem(75);
+            padding-bottom: rem(70);
+
+            background-image: radial-gradient( rem(1077) rem(1077) at 67% 436.02%, #f0f0f0 0%, #c8c8c8 100%);
+        }
+    }
+
+    &__text {
+        width: 52%;
+        padding-left: rem(100);
+
+        @include below($tablet) {
+            padding-left: rem(30);
+        }
+        @include below($tablet-small) {
+            width: 100%;
+            padding-left: 0;
+        }
+    }
+
+    &__image {
+        width: 48%;
+
+        background-image: url('/img/ceilings/printer.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        background-position: right;
+
+        @include below($tablet-small) {
+            display: none;
+        }
+    }
+
+    &__title {
+        position: relative;
+        margin: 0;
+        margin-bottom: rem(45);
+
+        @extend .second-title;
+        @include below($tablet-small) {
+            font-size: rem(26);
+            text-align: center;
+        }
+
+        &::after {
+            left: 50%;
+
+            margin: 0;
+
+            @include below($tablet-small) {
+                left: none;
+
+                margin: 0 auto;
+            }
+        }
+    }
+
+    &__desc {
+        margin: 0;
+        margin-bottom: rem(35);
+
+        font-size: rem(17);
+
+        @extend .text;
+        @include below($tablet-small) {
+            margin-bottom: rem(45);
+
+            text-align: center;
+        }
+        @include below($mobile) {
+            font-size: rem(18);
+            text-align: left;
+        }
+    }
+
+    &__list-wrap {
+        display: flex;
+        justify-content: space-between;
+
+        @include below($mobile) {
+            flex-direction: column;
+        }
+    }
+
+    &__list {
+        width: rem(260);
+        padding-left: rem(30);
+        margin: 0;
+
+        @include below($tablet-small) {
+            width: rem(305);
+            padding-right: rem(45);
+            padding-left: rem(50);
+        }
+        @include below($mobile) {
+            width: 100%;
+            padding: 0 rem(30);
+            padding-right: 0;
+        }
+
+        &:last-of-type {
+            width: rem(220);
+
+            @include below($tablet-small) {
+                width: rem(290);
+            }
+        }
+    }
+
+    &__item {
+        @extend .text;
+        margin-bottom: rem(15);
+
+        font-size: rem(17);
+
+        @include below($mobile) {
+            margin-bottom: rem(25);
+
+            font-size: rem(20);
+        }
+    }
+}

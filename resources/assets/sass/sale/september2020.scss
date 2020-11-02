@@ -1,0 +1,184 @@
+.offer {
+    background-image: url('/img/templates/ceilings/offer/september2020/bg-sm.jpg');
+    @include below($size_sm - 1) {
+        @media (min-resolution: 192dpi) {
+            background-image: url('/img/templates/ceilings/offer/september2020/bg-sm@2x.jpg');
+        }
+        @media (min-resolution: 288dpi) {
+            background-image: url('/img/templates/ceilings/offer/september2020/bg-sm@3x.jpg');
+        }
+    }
+    background-position: 42%;
+    background-repeat: no-repeat;
+    height: rem(600);
+    padding-top: rem(64);
+    background-size: 100% auto;
+
+    @include above($size_sm) {
+        background-image: url('/img/templates/ceilings/offer/september2020/bg-md.jpg');
+        background-size: auto 100%;
+        @media (min-resolution: 192dpi) {
+            background-image: url('/img/templates/ceilings/offer/september2020/bg-md@2x.jpg');
+        }
+        @media (min-resolution: 288dpi) {
+            background-image: url('/img/templates/ceilings/offer/september2020/bg-md@3x.jpg');
+        }
+        padding-top: rem(140);
+        height: rem(525);
+    }
+    @include above($size_md) {
+        background-image: url('/img/templates/ceilings/offer/september2020/bg-lg.jpg');
+        background-size: auto 100%;
+        @media (min-resolution: 192dpi) {
+            background-image: url('/img/templates/ceilings/offer/september2020/bg-lg@2x.jpg');
+        }
+        @media (min-resolution: 288dpi) {
+            background-image: url('/img/templates/ceilings/offer/september2020/bg-lg@3x.jpg');
+        }
+        height: rem(625);
+        padding-top: rem(185);
+    }
+
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+        z-index: 10;
+        max-width: rem(414);
+
+
+        @include above($size_sm) {
+            align-items: flex-start;
+            position: relative;
+            max-width: rem(460);
+        }
+        @include above($size_md) {
+            padding-left: rem(190);
+            max-width: none;
+        }
+
+    }
+
+    &__wrap {
+        display: flex;
+        justify-content: left;
+    }
+
+    &__title {
+        margin-bottom: rem(16);
+        font-size: rem(30);
+        line-height: rem(40);
+        font-family: $playfair;
+        font-weight: 700;
+        color: #485058;
+        text-align: center;
+
+        @include above($size_sm) {
+            font-size: rem(56);
+            line-height: rem(64);
+            text-align: left;
+            padding-left: 0;
+        }
+        @include above($size_md) {
+            font-size: rem(64);
+            line-height: rem(72);
+            margin-bottom: rem(21);
+        }
+
+    }
+
+    &__intro {
+        font-size: rem(20);
+        font-family: $helvetica;
+        line-height: rem(24);
+        letter-spacing: rem(-0.5);
+        color: #485058;
+        text-align: center;
+        margin-top: rem(200);
+
+
+        @include above($size_sm) {
+            margin-top: 0;
+            font-size: rem(26);
+            text-align: left;
+            max-width: rem(390);
+            letter-spacing: rem(-0.6);
+            line-height: rem(40);
+            padding-left: 0;
+        }
+        @include above($size_md) {
+            font-size: rem(32);
+            letter-spacing: rem(-0.6);
+            line-height: rem(40);
+            max-width: rem(480);
+        }
+    }
+
+    .formN {
+        display: grid;
+        row-gap: rem(16);
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin-top: rem(32);
+
+        @include above($size_sm) {
+            padding-left: 0;
+            margin-top: rem(32);
+        }
+        @include above($size_md) {
+            margin-top: rem(20);
+        }
+
+        .inputN {
+            border: 1px solid #babec2;
+        }
+
+        ::-webkit-input-placeholder { /* Chrome */
+            color: #babec2;
+        }
+
+        :-ms-input-placeholder { /* IE 10+ */
+            color: #babec2;
+        }
+
+        ::-moz-placeholder { /* Firefox 19+ */
+            color: #babec2;
+        }
+
+        :-moz-placeholder { /* Firefox 4 - 18 */
+            color: #babec2;
+        }
+
+        .buttonN {
+            max-width: none;
+            background: #babec2;
+            box-shadow: inset 0 -1px 0 #808890;
+            font-weight: normal;
+
+            @include above($size_sm) {
+                max-width: rem(304);
+                justify-self: flex-start;
+            }
+
+        }
+
+        &__agreement {
+            color: #babec2;
+            line-height: rem(16);
+
+            p {
+                margin-block-start: 0;
+            }
+
+            @include above($size_sm) {
+                text-align: left;
+                max-width: rem(304);
+            }
+
+            &_personal {
+                text-decoration: underline;
+            }
+        }
+    }
+}

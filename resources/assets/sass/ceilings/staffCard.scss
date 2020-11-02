@@ -1,0 +1,72 @@
+.staffCard {
+    display: flex;
+
+    &__info {
+        @include below($mobile) {
+            width: calc(100% - 90px);
+        }
+    }
+
+    &__avatar {
+        width: rem(150);
+        height: rem(150);
+        margin-right: rem(30);
+
+        border-radius: 50%;
+
+        @include below($mobile) {
+            width: rem(70);
+            height: rem(70);
+            margin-top: rem(50);
+            margin-right: rem(20);
+        }
+    }
+
+    h4 {
+        margin: 0;
+        margin-bottom: rem(20);
+
+        font-size: rem(24);
+        letter-spacing: rem(1.3);
+
+        @extend .text;
+        @include below($mobile) {
+            width: calc(100% + 90px);
+            margin-bottom: rem(25);
+            margin-left: rem(-90);
+
+            text-align: center;
+        }
+    }
+
+    p {
+        display: flex;
+        align-items: center;
+        margin: 0;
+
+        font-size: rem(18);
+        line-height: 1.3;
+
+        @extend .text;
+        @include below($mobile) {
+            &:not(:last-of-type) {
+                margin-bottom: rem(10);
+            }
+        }
+
+        &:not(:last-of-type) {
+            margin-bottom: rem(15);
+        }
+
+        span {
+            display: inline-flex;
+            justify-content: center;
+            width: rem(25);
+            margin-right: rem(15);
+        }
+    }
+
+    &__icon {
+        fill: $red_crismon;
+    }
+}

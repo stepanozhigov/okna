@@ -1,0 +1,59 @@
+.photobank {
+	overflow: hidden;
+
+	.titles {
+		margin-bottom: rem(64);
+	}
+
+	&__main {
+		background-image: url('/img/gui/square-bg--2x.jpg');
+		margin-bottom: rem(86);
+	}
+
+	&__wrap {
+		@extend .container;
+	}
+
+	&__list {
+		position: relative;
+		display: flex;
+		flex-wrap: wrap;
+		width: calc(100% + 70px);
+		margin-left: rem(-35);
+		margin-right: rem(-35);
+
+		@include below($mobile) {
+            width: 100%;
+			margin-left: 0;
+			margin-right: 0;
+        }
+
+		&_kitchen {
+			margin-bottom: rem(80);
+
+			&::after {
+				content: '';
+			    position: absolute;
+			    bottom: 0;
+			    left: 2.1875rem;
+			    width: calc(100% - 70px);
+			    height: .0625rem;
+			    background-color: #a7aaad;
+			}
+		}
+
+		&_rooms {
+			@include below($tablet) {
+				justify-content: center;
+			}
+		}
+
+	}
+
+	&__title {
+		@extend .second-title;
+		width: 100%;
+		text-align: center;
+		margin-bottom: rem(60);
+	}
+}

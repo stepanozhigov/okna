@@ -1,0 +1,155 @@
+@import 'mixins';
+@import 'variables';
+
+.survey {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+    &.container {
+        margin-bottom: rem(80);
+    }
+
+    &__buttons {
+        display: flex;
+    }
+
+    &__thankyou {
+        display: none;
+        margin: 0;
+        font-weight: 300;
+        font-size: rem(22);
+        color: #50555a;
+        margin: 0;
+        text-align: center;
+        line-height: rem(32);
+    }
+
+    &__title {
+        width: 100%;
+        margin: 0;
+        margin-bottom: rem(26);
+        color: $grey_abbey;
+        font-family: $playfair;
+        font-size: rem(36);
+        font-weight: 400;
+        text-align: center;
+        line-height: rem(38);
+        
+        @include above($size-sm) {
+            font-size: rem(32);
+        }
+    }
+
+    &__subtitle {
+        display: none;
+        margin: 0;
+        margin-bottom: rem(24);
+        width: 100%;
+        text-align: center;
+        color: #485058;
+        font-family: $helvetica;
+        font-size: rem(16);
+        font-weight: 300;
+
+        @include below($tablet) {
+            font-size: rem(18);
+            line-height: 1.1;
+        }
+    }
+
+    &__yes,
+    &__no {
+        width: rem(36);
+        height: rem(41);
+        text-indent: -9999px;
+        background-color: transparent;
+        background-repeat: no-repeat;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+
+    &__yes {
+        margin-right: rem(20);
+        background-image: url('/img/youtube-up.svg');
+        background-position: top;
+    }
+
+    &__no {
+        background-image: url('/img/youtube-down.svg');
+        background-position: bottom;
+    }
+
+    &__form {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+
+        @include below($tablet) {
+            width: 100%;
+        }
+    }
+
+    &__textarea.textarea {
+        width: rem(580);
+        margin-bottom: rem(30);
+        color: #808890;
+        font-family: $helvetica;
+        font-size: rem(18);
+        font-weight: 300;
+        line-height: 20px;
+
+        font-size: 18px;
+
+        @include below($tablet) {
+            width: 100%;
+        }
+
+        &::-webkit-input-placeholder {
+            color: #808890;
+            font-family: $helvetica;
+            font-size: rem(18);
+            font-weight: 300;
+            line-height: 20px;
+        }
+
+        &::-moz-placeholder {
+            color: #808890;
+            font-family: $helvetica;
+            font-size: rem(18);
+            font-weight: 300;
+            line-height: 20px;
+        }
+
+        &:-moz-placeholderr {
+            color: #808890;
+            font-family: $helvetica;
+            font-size: rem(18);
+            font-weight: 300;
+            line-height: 20px;
+        }
+
+        &:-ms-input-placeholde {
+            color: #808890;
+            font-family: $helvetica;
+            font-size: rem(18);
+            font-weight: 300;
+            line-height: 20px;
+        }
+    }
+
+    &_opened {
+        .survey__buttons {
+            display: none;
+        }
+        .survey__form {
+            display: flex;
+        }
+
+        .survey__subtitle {
+            display: block;
+        }
+    }
+}

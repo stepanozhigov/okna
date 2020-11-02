@@ -1,0 +1,39 @@
+.radio {
+    position: relative;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__mark {
+        position: relative;
+        width: 17px;
+        height: 17px;
+        border: 1px solid #d0d2d4;
+        background-color: $white;
+        border-radius: 50%;
+        margin-right: 10px;
+
+        &:before {
+            content: "";
+            position: absolute;
+            display: none;
+            top: 50%;
+            left: 50%;
+            width: 50%;
+            height: 50%;
+            border: 2px solid $red_crismon;
+            border-radius: 50%;
+            background: white;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    &__input {
+       display: none;
+
+       &:checked ~ .radio__mark:before {
+           display: flex;
+       }
+    }
+    
+}

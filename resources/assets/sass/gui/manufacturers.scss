@@ -1,0 +1,57 @@
+.manufacturers {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: rem(80);
+    overflow: hidden;
+
+    &__list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+
+        @include below($mobile) {
+            justify-content: center;
+        }
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    &__country {
+        font-family: $helvetica;
+        font-size: rem(16);
+        line-height: rem(22);
+        width: 120px;
+        padding-top: 10px;
+        margin: 0;
+        margin-top: 1.25rem;
+        color: #babec2;
+        text-align: center;
+        border-top: 1px solid #a7aaad;
+    }
+
+    &_main {
+
+    }
+
+	&_ceilings {
+		.titles  {
+			margin-bottom: rem(48);
+		}
+	}
+
+	&_climat {
+		padding-bottom: rem(48);
+		background-color: #f4f6f8;
+		margin-bottom: 0;
+		
+		.titles  {
+			padding-top: rem(64)
+		}
+	}
+}

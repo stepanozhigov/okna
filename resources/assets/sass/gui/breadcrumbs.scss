@@ -1,0 +1,139 @@
+@import 'mixins';
+@import 'variables';
+.breadcrumbs {
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    @include below($mobile) {
+        display: none;
+    }
+
+    &__item {
+        position: relative;
+
+        display: inline-flex;
+
+
+
+        p {
+            max-width: rem(115);
+            margin: 0;
+            overflow: hidden;
+
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            // transition: max-width .2s;
+            // will-change: transform;
+        }
+
+        &:nth-of-type(2):not(:last-of-type) {
+            p {
+                max-width: 0;
+            }
+            span {
+                position: relative;
+
+                &::after {
+                    content: '...';
+                }
+            }
+        }
+
+        &:hover {
+            p {
+                max-width: 100%;
+
+
+            }
+            &:nth-of-type(2):not(:last-of-type) {
+                p {
+                    max-width: 100%;
+                }
+            }
+
+            span {
+                display: none;
+            }
+        }
+        @include below($phablet) {
+            p {
+                max-width: rem(60);
+            }
+        }
+
+        &:not(:last-of-type) {
+            padding-right: rem(30);
+        }
+
+        &:not(:first-of-type) {
+            padding-left: rem(17);
+
+            &::after,
+            &::before {
+                content: '';
+
+                position: absolute;
+                top: calc(50% - 4px);
+                left: rem(-12);
+
+                width: 0;
+                height: 0;
+
+                border-width: rem(6) rem(6) 0;
+                border-style: solid;
+            }
+
+            &::before {
+                border-color: $black transparent transparent;
+                transform: rotate(-90deg) translateY(.5px);
+            }
+
+            &::after {
+                border-color: $white transparent transparent;
+                transform: rotate(-90deg);
+            }
+        }
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+
+        text-decoration: none;
+
+        color: $grey_abbey;
+        font-family: $helvetica;
+        font-size: rem(14);
+        font-weight: 300;
+        line-height: rem(20);
+
+        p {
+            margin: 0;
+        }
+    }
+
+    &_climat {
+        position: relative;
+
+        padding-left: rem(20);
+
+        @include below($tablet) {
+            display: none;
+        }
+
+        &::after {
+            content: '';
+
+            position: absolute;
+            top: 50%;
+            left: 0;
+
+            width: rem(1);
+            height: rem(20);
+
+            background-color: #a5aaaf;
+            transform: translateY(-50%);
+        }
+    }
+}
